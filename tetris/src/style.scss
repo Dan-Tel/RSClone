@@ -5,9 +5,18 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+.body {
+  min-height: 100vh;
+  background-color: gray;
+}
+
 @mixin playButton ($width, $height) {
   outline: none;
   border: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: $width;
   height: $height;
@@ -21,6 +30,7 @@
   text-transform: uppercase;
   color: #ffffff;
   font-weight: 700;
+  text-decoration: none;
 }
 
 .main-page {
@@ -33,7 +43,7 @@
   overflow: hidden;
 
   //! Скрыл
-  display: none;
+  // display: none;
 
   & video {
     position: absolute;
@@ -244,7 +254,7 @@
   border: 5px solid #111;
   /* overflow: hidden; */
   box-sizing: content-box;
-  margin: 15px !important;
+  // margin: 15px !important;
 }
 
 .game__screen {

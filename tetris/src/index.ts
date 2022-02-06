@@ -1,5 +1,49 @@
 import './style.scss';
+import ClassicModePage from './views/ClassicModePage';
+import ErrorPage from './views/ErrorPage';
+import GameModespage from './views/GameModesPage';
+import HomePage from './views/HomePage';
 
+/* Routing section */
+const pageContainer = document.querySelector('.page-container') as HTMLDivElement;
+
+const getPageByUrl = (parsedUrl) => {
+    console.log(parsedUrl);
+    if (parsedUrl) {
+      switch (parsedUrl.resource) {
+        case '/':
+          return new HomePage(pageContainer);
+        case '/#modes':
+          return new GameModespage(pageContainer);
+        case '/#classic':
+          return new ClassicModePage(pageContainer);
+        default:
+          return new ErrorPage(pageContainer);
+      }
+    }
+    return new ErrorPage(pageContainer);
+  };
+  
+  const parseUrl = () => {
+    const url = document.location.pathname + document.location.hash;
+    console.log(url);
+    const urlChunks = url.substr(1).split('/');
+    return {
+      resource: `/${urlChunks[0]}`,
+      id: urlChunks[1],
+    };
+  };
+  
+  const router = async () => {
+    
+    const parsedUrl = parseUrl();
+    const page = getPageByUrl(parsedUrl);
+    await page.render();
+  };
+  
+  window.addEventListener('hashchange', router);
+  window.addEventListener('load', router);
+  
 // import GameController from './GameController';
 // import SoundService from './services/SoundService';
 // import PlayField from './PlayField';
