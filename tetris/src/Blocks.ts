@@ -5,6 +5,7 @@ export default class Blocks {
     const piece: IBlock = {
       x: 0,
       y: 0,
+      blockType: type,
       blocks: [
         [0, 0, 0, 0],
         [1, 1, 1, 1],
@@ -68,6 +69,9 @@ export default class Blocks {
       default:
         throw new Error('Неизвестный тип фигур!');
     }
+
+    piece.x = Math.floor((10 - piece.blocks[0].length) / 2);
+    piece.y = -1;
 
     return piece;
   }

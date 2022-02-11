@@ -17,6 +17,8 @@ export default class GameController {
 
   level: number;
 
+  topOut: boolean;
+
   playfieldBoard: number[][];
 
   activePiece: IBlock;
@@ -43,6 +45,9 @@ export default class GameController {
     this.score = 0;
     this.lines = 0;
     this.level = 0;
+
+    this.topOut = false;
+
     this.playfieldBoard = this.createPlayfield();
 
     this.activePiece = this.createPiece();
@@ -115,6 +120,8 @@ export default class GameController {
   }
 
   movePieceDown() {
+    if (this.topOut) return;
+
     this.activePiece.y += 1;
 
     if (this.hasCollision()) {
@@ -124,6 +131,10 @@ export default class GameController {
       this.lockPiece();
       this.updatePieces();
       this.updateScore(this.clearLines());
+    }
+
+    if (this.hasCollision()) {
+      this.topOut = true;
     }
   }
 

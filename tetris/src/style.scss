@@ -42,9 +42,6 @@
   height: 100vh;
   overflow: hidden;
 
-  //! Скрыл
-  // display: none;
-
   & video {
     position: absolute;
     min-width: 100%;
@@ -70,7 +67,9 @@
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: #333333;
+  background: url("assets/images/2e10c7e8323ee72576c6dbfcb72e12fe.png");
+  background-size: cover;
+  background-position: center;
 }
 
 .menu__list {
@@ -236,70 +235,79 @@
 
 
 
-.tetris-page {
-  width: 100%;
-  height: 100vh;
+.classic-game-page {
+  position: relative;
   display: flex;
-  display: none;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(#333333, #111111);
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  & video {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
 }
 
-.game-container {
+.game-container,
+.game-container1 {
   position: relative;
   width: 300px;
-  background-color: #222;
-  border-radius: 10px;
-  border: 5px solid #111;
-  /* overflow: hidden; */
+  background-color: #2D2F3D;
+  border-radius: 20px;
+  border: 10px solid #111;
   box-sizing: content-box;
-  // margin: 15px !important;
 }
 
 .game__screen {
   position: relative;
   display: flex;
   flex-wrap: wrap;
-  // width: 300px;
-  // height: 600px;
+  width: 300px;
+  height: 600px;
   border-radius: 0 0 10px 10px;
 }
 
 .game__stats-container {
-  font-family: 'Press Start 2P', cursive;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
   display: flex;
   flex-wrap: wrap;
-  color: rgba(255, 255, 255, 0.85)
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: 10px;
+  overflow: hidden;
 }
 
 .game__score {
   text-align: center;
   flex-basis: 100%;
-  border: 2px solid #222;
+  border: 2px solid #242633;
   padding: 5px;
-  background-color: #444;
-  border-radius: 10px 10px 0 0;
+  background-color: #2D2F3D;
 }
 
 .game__lines,
 .game__level {
   text-align: center;
   flex-basis: 50%;
-  border: 2px solid #222;
-  background-color: #444;
+  border: 2px solid #242633;
+  background-color: #2D2F3D;
   padding: 5px;
 }
 
 .game__next {
   position: absolute;
   top: 10%;
-  left: 310px;
-  width: 60px;
-  height: 50px;
-  background-color: #444;
-  border-radius: 10px;
-  border: 5px solid #111;
+  left: 320px;
+  width: 130px;
+  height: 130px;
+  background-color: #2D2F3D;
+  border-radius: 20px;
+  border: 10px solid #111;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -312,9 +320,9 @@
 
 .game__cell {
   position: relative;
-  background: linear-gradient(45deg, #222, #333);
-  border: 1px solid rgba(0, 0, 0, 0.5);
-  border-radius: 0 0 5px 5px;
+  background: linear-gradient(45deg, #333544, #2D2F3D);
+  border: 1px solid #242633;
+  border-radius: 5px;
   background-size: cover;
   transform-style: preserve-3d;
   transform: translateZ(10px);
@@ -331,8 +339,6 @@
   left: 0;
   top: -5px;
   filter: brightness(0.5);
-  // transform-style: preserve-3d;
-  // transform: translateZ(-10px);
 }
 
 .game__cell.effect {
@@ -351,4 +357,84 @@
   } 100% {
     filter: brightness(100%);
   }
+}
+
+
+.win-screen {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 500px;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 45px;
+  z-index: 10;
+  padding: 25px 30px;
+  background: rgba(78, 66, 89, 0.75);
+  border-radius: 40px;
+  opacity: 0.5;
+  transition: 0.5s ease;
+
+  &.show {
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+
+.timer-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  font-size: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 1;
+  transition: 0.5s ease;
+
+  &.hide {
+    opacity: 0;
+    z-index: -5;
+  }
+}
+
+.win-screen__wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  & h1 {
+    margin-bottom: 15px;
+    color: #E9E598;
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  & .current-score {
+    font-size: 28px;
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  & .record-score {
+    font-size: 22px;
+    color: #ff9494;
+  }
+}
+
+.win-screen__button {
+  position: absolute;
+  bottom: 30px;
+  left: 25px;
+  right: 25px;
+  @include playButton(calc(100% - 50px), 95px);
 }

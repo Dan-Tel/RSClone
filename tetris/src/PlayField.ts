@@ -51,36 +51,36 @@ export default class PlayField implements IPlayField {
     this.gameContainer = playFieldContainer;
 
     // Создание контейнеров для поля игры
-    const statsContainer = document.createElement('div');
-    statsContainer.classList.add('game__stats-container');
+    // const statsContainer = document.createElement('div');
+    // statsContainer.classList.add('game__stats-container');
+    const statsContainer = this.gameContainer.querySelector('.game__stats-container') as HTMLElement;
 
-    const scoreContainer = document.createElement('div');
-    scoreContainer.classList.add('game__score');
+    // const scoreContainer = document.createElement('div');
+    // scoreContainer.classList.add('game__score');
+    const scoreContainer = statsContainer.querySelector('.game__score') as HTMLDivElement;
 
-    const linesContainer = document.createElement('div');
-    linesContainer.classList.add('game__lines');
+    // const linesContainer = document.createElement('div');
+    // linesContainer.classList.add('game__lines');
+    const linesContainer = statsContainer.querySelector('.game__lines') as HTMLDivElement;
 
-    const levelContainer = document.createElement('div');
-    levelContainer.classList.add('game__level');
+    // const levelContainer = document.createElement('div');
+    // levelContainer.classList.add('game__level');
+    const levelContainer = statsContainer.querySelector('.game__level') as HTMLDivElement;
 
-    const nextFigureContainer = document.createElement('div');
-    nextFigureContainer.classList.add('game__next');
-    const nextFigureImg = document.createElement('img')
-    nextFigureContainer.appendChild(nextFigureImg);
+    // const gameScreenContainer = document.createElement('div');
+    // gameScreenContainer.classList.add('game__screen');
+    const gameScreenContainer = this.gameContainer.querySelector('.game__screen') as HTMLDivElement;
+    // gameScreenContainer.style.height = `${playFieldSettings.height}px`;
+    // gameScreenContainer.style.width = `${playFieldSettings.width}px`;
 
-    const gameScreenContainer = document.createElement('div');
-    gameScreenContainer.classList.add('game__screen');
-    gameScreenContainer.style.height = `${playFieldSettings.height}px`;
-    gameScreenContainer.style.width = `${playFieldSettings.width}px`;
+    // statsContainer.appendChild(scoreContainer);
+    // statsContainer.appendChild(linesContainer);
+    // statsContainer.appendChild(levelContainer);
 
-    statsContainer.appendChild(scoreContainer);
-    statsContainer.appendChild(linesContainer);
-    statsContainer.appendChild(levelContainer);
+    // playFieldContainer.appendChild(statsContainer);
+    // playFieldContainer.appendChild(gameScreenContainer);
 
-    playFieldContainer.appendChild(statsContainer);
-    playFieldContainer.appendChild(gameScreenContainer);
-
-    this.playFieldSettings = playFieldSettings
+    this.playFieldSettings = playFieldSettings;
 
     this.width = playFieldSettings.width;
     this.height = playFieldSettings.height;
@@ -112,6 +112,9 @@ export default class PlayField implements IPlayField {
     this.clearScreen();
     this.renderPlayfield(state);
     this.renderPanel(state);
+
+    const nextFigureImg = this.gameContainer.querySelector('.game__next img') as HTMLImageElement;
+    nextFigureImg.src = `../assets/images/next-${'IJLOSTZ'.indexOf(state.nextPiece.blockType) + 1}.png`;
   }
 
   clearScreen() {
