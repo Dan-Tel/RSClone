@@ -8,8 +8,6 @@ export default class PlayFieldCreator {
 
   gameContainer: HTMLDivElement;
 
-  isOtherPlayerLose: boolean;
-
   isGameOver: boolean;
 
   playFieldSettings: IPlayFieldSettings;
@@ -24,10 +22,9 @@ export default class PlayFieldCreator {
 
   moveDown: () => void;
 
-  constructor(pageContainer, gameContainer, isOtherPlayerLose?) {
+  constructor(pageContainer, gameContainer) {
     this.pageContainer = pageContainer;
     this.gameContainer = gameContainer;
-    this.isOtherPlayerLose = isOtherPlayerLose;
     this.isGameOver = false;
 
     this.playFieldSettings = {

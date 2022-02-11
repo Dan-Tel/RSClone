@@ -29,18 +29,6 @@ export default class ClassicModePage extends BasePage {
         </div>
     </div>
 
-    <div class="game-container1">
-        <div class="game__stats-container">
-            <div class="game__score">0</div>
-            <div class="game__lines">0</div>
-            <div class="game__level">0</div>
-        </div>
-        <div class="game__screen"></div>
-        <div class="game__next">
-          <img>
-        </div>
-    </div>
-
     <div class="win-screen">
         <img class="win-logo" src="assets/svg/crown.svg"></img>
         <div class="win-screen__wrapper">
