@@ -5,6 +5,10 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+html {
+  background: #4a69c0;
+}
+
 .body {
   min-height: 100vh;
   background-color: gray;
@@ -22,7 +26,7 @@
   height: $height;
   background: #E7C160;
   border: 5px solid #ECD18D;
-  box-shadow: 0px 4px 4px rgb(187, 153, 68),
+  box-shadow: 0px 4px rgb(187, 153, 68),
               inset -10px -10px 20px rgba(255, 255, 255, 0.25),
               inset 10px 10px 20px rgba(0, 0, 0, 0.25);
   border-radius: 40px;
@@ -31,6 +35,28 @@
   color: #ffffff;
   font-weight: 700;
   text-decoration: none;
+  transition: 0.2s ease;
+
+  &:hover {
+    box-shadow: 0px 0px rgb(187, 153, 68),
+                inset -10px -10px 20px rgba(255, 255, 255, 0.25),
+                inset 10px 10px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(4px);
+  }
+}
+
+.back-btn {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 60px;
+  height: 60px;
+  opacity: 0.5;
+  transition: 0.2s ease;
+
+  &:hover {
+    opacity: 1;
+  }
 }
 
 .main-page {
@@ -60,7 +86,8 @@
   width: 140px;
   height: 100%;
   padding-top: 20px;
-  background: linear-gradient(90deg, #303E57 0%, #395A94 100%);
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.75) 0%, rgba(74, 74, 74, 0.375) 100%);
+  z-index: 10;
 }
 
 .main__logo {
@@ -82,6 +109,11 @@
     width: 64px;
     height: 64px;
     opacity: 0.5;
+    transition: 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 
   & .menu__main {
@@ -90,10 +122,6 @@
 
   & .menu__shop {
     background: url('./assets/svg/shop.svg') no-repeat;
-  }
-
-  & .menu__themes {
-    background: url('./assets/svg/themes.svg') no-repeat;
   }
 
   & .menu__settings {
@@ -149,8 +177,22 @@
 }
 
 .main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 75px;
+
   & .main__play-btn {
     @include playButton(490px, 95px);
+  }
+}
+
+.tetris-logo {
+  width: 490px;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
   }
 }
 
@@ -182,6 +224,11 @@
   padding: 25px 30px;
   background: rgba(95, 47, 143, 0.75);
   border-radius: 40px;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .mode__name {
@@ -242,6 +289,8 @@
   justify-content: center;
   width: 100%;
   height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow: hidden;
 
   & video {
@@ -437,4 +486,100 @@
   left: 25px;
   right: 25px;
   @include playButton(calc(100% - 50px), 95px);
+}
+
+.shop-page {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  & video {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+  }
+}
+
+.skin-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  width: 500px;
+  height: 600px;
+  border-radius: 40px;
+  overflow: hidden;
+  transition: 0.2s ease;
+
+  &.bought {
+    filter: brightness(0.5);
+  }
+
+  &.common {
+    background: radial-gradient(50% 50% at 50% 50%, #75CA68 0%, #299427 100%);
+    border: 5px solid #75CA68;
+  }
+
+  &.rare {
+    background: radial-gradient(50% 50% at 50% 50%, #68A7CA 0%, #275294 100%);
+    border: 5px solid #68A7CA;
+  }
+
+  &.epic {
+    background: radial-gradient(50% 50% at 50% 50%, #BC68CA 0%, #7E2794 100%);
+    border: 5px solid #BC68CA;
+  }
+
+  &.legendary {
+    background: radial-gradient(50% 50% at 50% 50%, #cab868 0%, #948927 100%);
+    border: 5px solid #cab868;
+  }
+
+  & img {
+    height: 100%;
+  }
+}
+
+.skin-wrapper {
+  height: 180px;
+  width: 100%;
+  background:rgba(0, 0, 0, 0.55);
+}
+
+.skin-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  font-weight: 700;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+.skin-cost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 80px;
+  background: #080808;
+  font-size: 28px;
+  font-weight: 700;
+  color: #E7C160;
+  
+  & .coin__logo {
+    width: 1em;
+    height: 1em;
+    background: url("./assets/svg/coin.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+#shop-slider {
+  // width: calc(100vw - 200px) !important;
 }

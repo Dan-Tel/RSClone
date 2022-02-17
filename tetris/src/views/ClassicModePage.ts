@@ -2,6 +2,7 @@ import PlayFieldCreator from '../PlayfieldCreator';
 import BasePage from './BasePage';
 import IKeyHandlerSettings from '../settings/IKeyHandlerSettings';
 import GameController from '../GameController';
+import states, { updateStates } from '../states';
 
 export default class ClassicModePage extends BasePage {
   pageContainer: HTMLDivElement;
@@ -12,10 +13,9 @@ export default class ClassicModePage extends BasePage {
   }
 
   render() {
-    this.pageContainer.innerHTML = `<section class="classic-game-page">
-    <video autoplay muted loop>
-        <source src="assets/videos/tetris-bg3.mp4" type="video/mp4">
-    </video>
+    this.pageContainer.innerHTML = `
+    <section style="background-image: url('./assets/backgrounds/bg-${Math.floor(Math.random() * 12) + 1}.png')" class="classic-game-page">
+    <a class="back-btn" href="/#modes"><img src="./assets/svg/back.svg"></a>
 
     <div class="game-container">
         <div class="game__stats-container">
@@ -43,6 +43,7 @@ export default class ClassicModePage extends BasePage {
     </section>
     `
 
+    // updateStates();
     const playfield1 = new PlayFieldCreator(this.pageContainer, document.querySelector('.game-container'));
 
     const registerKeyHandler = (gameController: GameController, keySettings: IKeyHandlerSettings) => {
@@ -62,6 +63,7 @@ export default class ClassicModePage extends BasePage {
               gameController.playField.render(gameController.getState());
               break;
             case keySettings.moveDown:
+              console.log(states);
               playfield1.moveDown();
               break;
             default:
