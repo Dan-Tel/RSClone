@@ -1,4 +1,5 @@
 import IPlayFieldSettings from './settings/IPlayFieldSettings';
+import states from './states';
 
 // TODO: после того, как будет расскоментирован код, интерфейс надо перенести в interfaces.ts
 export interface IPlayField {
@@ -156,7 +157,7 @@ export default class PlayField implements IPlayField {
 
         if (block) {
           const cell = this.cells[y * this.playFieldSettings.columns + x];
-          cell.style.backgroundImage = `url('./assets/images/figure-classic_${block}.png')`;
+          cell.style.backgroundImage = `url('./assets/images/${states.selectedSkin}_${block}.png')`;
         }
       }
     }

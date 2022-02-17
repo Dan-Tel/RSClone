@@ -2,6 +2,7 @@ import GameController from './GameController';
 import PlayField from './PlayField';
 import SoundService from './services/SoundService';
 import IPlayFieldSettings from './settings/IPlayFieldSettings';
+import states from './states';
 
 export default class PlayFieldCreator {
   pageContainer: HTMLDivElement;
@@ -68,6 +69,10 @@ export default class PlayFieldCreator {
 
           // ! Надо поменять record score на те которые в базе данных :D
           (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `Рекордный счёт: ${this.gameController.score}`;
+
+          states.coins += this.gameController.score / 2;
+
+          console.log('states:', states.coins, 'money:', this.gameController.score / 2);
 
           winScreen.classList.add('show');
         }

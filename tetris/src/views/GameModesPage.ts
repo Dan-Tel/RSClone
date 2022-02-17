@@ -1,16 +1,17 @@
-import BasePage from "./BasePage";
+import BasePage from './BasePage';
 
 export default class GameModespage extends BasePage {
-    constructor(pageContainer) {
-        super(pageContainer);
-    }
+  constructor(pageContainer) {
+    super(pageContainer);
+  }
 
-    render() {
-        this.pageContainer.innerHTML = 
-        `<section class="game-mode-page">
+  render() {
+    this.pageContainer.innerHTML = `<section class="game-mode-page">
         <video autoplay muted loop>
             <source src="assets/videos/tetris-bg2.mp4" type="video/mp4">
         </video>
+
+        <a class="back-btn" href="/"><img src="./assets/svg/back.svg"></a>
   
         <div class="game-mode__card">
             <div class="mode__name">
@@ -44,5 +45,5 @@ export default class GameModespage extends BasePage {
             <a href="/#multiplayer" class="game-mode__play multi-play">Играть</a>
         </div>
     </section>`;
-    }
+  }
 }
