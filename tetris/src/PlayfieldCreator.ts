@@ -21,7 +21,9 @@ export default class PlayFieldCreator {
 
   canPlay: boolean;
 
-  moveDown: () => void;
+  isWinner: boolean = false;
+
+  movingDownInterval: NodeJS.Timer | null = null;
 
   constructor(pageContainer, gameContainer) {
     this.pageContainer = pageContainer;
@@ -38,63 +40,62 @@ export default class PlayFieldCreator {
     this.playField = new PlayField(this.gameContainer as HTMLDivElement, this.playFieldSettings);
     this.gameController = new GameController(this.playField, this.soundService);
 
-    this.moveDown = () => {};
-
     this.canPlay = false;
   }
 
+  stopTimer = () => {
+    if (this.movingDownInterval && this.isGameOver) {
+      clearInterval(this.movingDownInterval);
+      this.movingDownInterval = null;
+    }
+  }
+
+  startTimer = () => {
+    if (!this.movingDownInterval && !this.isGameOver) {
+      this.movingDownInterval = setInterval(() => this.moveDown(), 800);
+    }
+  }
+
+  gameOver = () => {
+    const winScreen = this.pageContainer.querySelector('.win-screen') as HTMLDivElement;
+
+        (winScreen.querySelector('.current-score') as HTMLDivElement).textContent = `Текущий счёт: ${this.gameController.score}`;
+
+        // ! Надо поменять record score на те которые в базе данных :D
+        (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `Рекордный счёт: ${this.gameController.score}`;
+
+        states.coins += this.gameController.score / 2;
+
+        console.log('states:', states.coins, 'money:', this.gameController.score / 2);
+
+        winScreen.classList.add('show');
+  }
+
+  moveDown = () => {
+    if (this.gameController.topOut && !this.isGameOver) {
+      this.isGameOver = true;
+      this.isWinner = true;
+      this.stopTimer();
+
+      if (this.isWinner) {
+        this.gameOver();
+      }
+    }
+
+    this.gameController.movePieceDown();
+    if (this.gameController.isClearing) {
+      this.soundService.playLine();
+      this.gameController.playField.clearingEffect(this.gameController.clearingLines, true);
+      setTimeout(() => {
+        this.gameController.playField.clearingEffect(this.gameController.clearingLines, false);
+        this.gameController.playField.render(this.gameController.getState());
+      }, 250)
+    }
+    this.gameController.playField.render(this.gameController.getState());
+  }
+
   createPlayField() {
-    let movingDownInterval;
-    let isWinner = false;
-
     let countDown = 3;
-
-    const stopTimer = () => {
-      if (movingDownInterval && this.isGameOver) {
-        clearInterval(movingDownInterval);
-        movingDownInterval = null;
-      }
-    }
-
-    this.moveDown = () => {
-      if (this.gameController.topOut && !this.isGameOver) {
-        this.isGameOver = true;
-        isWinner = true;
-        stopTimer();
-
-        if (isWinner) {
-          const winScreen = this.pageContainer.querySelector('.win-screen') as HTMLDivElement;
-
-          (winScreen.querySelector('.current-score') as HTMLDivElement).textContent = `Текущий счёт: ${this.gameController.score}`;
-
-          // ! Надо поменять record score на те которые в базе данных :D
-          (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `Рекордный счёт: ${this.gameController.score}`;
-
-          states.coins += this.gameController.score / 2;
-
-          console.log('states:', states.coins, 'money:', this.gameController.score / 2);
-
-          winScreen.classList.add('show');
-        }
-      }
-
-      this.gameController.movePieceDown();
-      if (this.gameController.isClearing) {
-        this.soundService.playLine();
-        this.gameController.playField.clearingEffect(this.gameController.clearingLines, true);
-        setTimeout(() => {
-          this.gameController.playField.clearingEffect(this.gameController.clearingLines, false);
-          this.gameController.playField.render(this.gameController.getState());
-        }, 250)
-      }
-      this.gameController.playField.render(this.gameController.getState());
-    }
-
-    const startTimer = () => {
-      if (!movingDownInterval && !this.isGameOver) {
-        movingDownInterval = setInterval(this.moveDown, 1000);
-      }
-    }
 
     const countInterval = setInterval(() => {
       const timer = this.pageContainer.querySelector('.timer-overlay') as HTMLDivElement;
@@ -104,7 +105,7 @@ export default class PlayFieldCreator {
         clearInterval(countInterval);
         timer.classList.add('hide');
 
-        startTimer();
+        this.startTimer();
       }
       timer.textContent = `${countDown}`;
       countDown -= 1;
@@ -112,7 +113,7 @@ export default class PlayFieldCreator {
 
     window.addEventListener('hashchange', () => {
       this.isGameOver = true;
-      stopTimer();
+      this.stopTimer();
       clearInterval(countInterval);
     });
   }

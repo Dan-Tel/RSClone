@@ -1,8 +1,8 @@
 import Blocks from './Blocks';
-import clearingAnimationTimeOut from './Constants';
 import IBlock from './interfaces';
 import PlayField from './PlayField';
 import ISoundService from './services/SoundService';
+import clearingAnimationTimeOut from './settings/Constants';
 
 export default class GameController {
   block: Blocks;

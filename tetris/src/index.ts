@@ -1,9 +1,11 @@
+import MultiplayerService from './services/MultiplayerService';
 import states, { saveStates, updateStates } from './states';
 import './style.scss';
 import ClassicModePage from './views/ClassicModePage';
 import ErrorPage from './views/ErrorPage';
 import GameModespage from './views/GameModesPage';
 import HomePage from './views/HomePage';
+import MultiplayerPage from './views/MultiplayerPage';
 import ShopPage from './views/ShopPage';
 
 /* Routing section */
@@ -21,6 +23,8 @@ const getPageByUrl = (parsedUrl) => {
         return new GameModespage(pageContainer);
       case '/#classic':
         return new ClassicModePage(pageContainer);
+      case '/#multiplayer':
+        return new MultiplayerPage(pageContainer, new MultiplayerService());
       default:
         return new ErrorPage(pageContainer);
     }

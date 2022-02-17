@@ -311,6 +311,13 @@ html {
   box-sizing: content-box;
 }
 
+.multiplayer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+}
+
 .game__screen {
   position: relative;
   display: flex;
