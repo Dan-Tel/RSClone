@@ -25,14 +25,14 @@ export default class MultiplayerPage extends BasePage {
   findEnemy() {
     fetch(`${FindEnemyUrl}/?groupGuid=${this.multiplayerService.connectionId}`, {
       headers: {
-        'mode': 'cors'
+        'mode': 'cors'  
       }
     });
   }
 
   async render() {
     this.pageContainer.innerHTML = `
-        <section style="background-image: url('./assets/backgrounds/bg-${Math.floor(Math.random() * 12) + 1}.png')" class="classic-game-page">
+        <section style="background-image: url('./assets/backgrounds/bg-${Math.floor(Math.random() * 12) + 1}.png')" class="multiplayer-game-page">
         <a class="back-btn" href="/#modes"><img src="./assets/svg/back.svg"></a>
         
         <div class="multiplayer-container">
@@ -43,9 +43,6 @@ export default class MultiplayerPage extends BasePage {
                     <div class="game__level">0</div>
                 </div>
                 <div class="game__screen"></div>
-                <div class="game__next">
-                  <img>
-                </div>
             </div>
 
             <div class="game-container my-game-container">
@@ -72,7 +69,22 @@ export default class MultiplayerPage extends BasePage {
             <a href="" class="win-screen__button">Назад</a>
         </div>
     
-        <div class="timer-overlay">3</div>
+        <div class="timer-overlay hide">3</div>
+        <div class="spinner-overlay">
+          <p class="spinner-label">We are trying to find an opponent for you</p>
+          <div class='spinner'>
+            <div class='spinner__block'>
+                <div class='spinner__item'></div>
+                <div class='spinner__item'></div>
+                <div class='spinner__item'></div>
+                <div class='spinner__item'></div>
+                <div class='spinner__item'></div>
+                <div class='spinner__item'></div>
+                <div class='spinner__item'></div>
+                <div class='spinner__item'></div>
+            </div>
+          </div>
+        </div>
         </section>
         `
 

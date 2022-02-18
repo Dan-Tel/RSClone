@@ -25,6 +25,12 @@ export default class MultiplayerService {
 
     connection.on('ReceiveGuidEnemy', (enemyGuid) => {
       sessionStorage.setItem('enemy', enemyGuid);
+      const spinnerOverlay = document.querySelector('.spinner-overlay');
+      const timerOverlay = document.querySelector('.timer-overlay');
+      if(spinnerOverlay && timerOverlay) {
+        spinnerOverlay.classList.add('hide');
+        timerOverlay.classList.remove('hide');
+      }
       myPlayField.create();
     });
 
