@@ -50,6 +50,14 @@ export const languages = {
     language: 'Lingua',
     selected: 'SELEZIONATO',
     bought: 'ACQUISTATO',
+    
+    // Multiplayer mode
+    yourResult: 'Il tuo risultato', // Вы победили
+    enemyResult: 'Risultato avversario', //Результат врага
+    youWin: 'Hai vinto', // Вы победили
+    youLost: 'Hai perso', // Вы проиграли
+    draw: 'Pareggiare', //Ничья
+    waitOfTheEnd: 'Aspettatevi la fine del gioco' // Ожидайте окончания игры
   },
   de: {
     login: 'Anmeldung',
@@ -80,6 +88,14 @@ export const languages = {
     language: 'Sprache',
     selected: 'AUSGEWÄHLT',
     bought: 'GEKAUFT',
+
+    // Multiplayer mode
+    yourResult: 'Ihr Ergebnis', // Вы победили
+    enemyResult: 'Das Ergebnis des Gegners', //Результат врага
+    youWin: 'Sie haben gewonnen', // Вы победили
+    youLost: 'Sie haben verloren', // Вы проиграли
+    draw: 'Unentschieden', //Ничья
+    waitOfTheEnd: 'Warten Sie auf das Ende des Spiels' // Ожидайте окончания игры
   },
   en: {
     login: 'Sign in',
@@ -110,6 +126,14 @@ export const languages = {
     language: 'LANGUAGE',
     selected: 'SELECTED',
     bought: 'BOUGHT',
+
+    // Multiplayer mode
+    yourResult: 'Your result', // Вы победили
+    enemyResult: 'Opponent`s result', //Результат врага
+    youWin: 'You`ve won', // Вы победили
+    youLost: 'You`ve lost', // Вы проиграли
+    draw: 'Draw', //Ничья
+    waitOfTheEnd: 'Wait till the end' // Ожидайте окончания игры
   },
   ru: {
     login: 'Войти в аккаунт',
@@ -140,6 +164,14 @@ export const languages = {
     language: 'ЯЗЫК',
     selected: 'ВЫБРАНО',
     bought: 'КУПЛЕНО',
+
+    // Multiplayer mode
+    yourResult: 'Ваш результат', // Вы победили
+    enemyResult: 'Результат соперника', //Результат врага
+    youWin: 'Вы победили', // Вы победили
+    youLost: 'Вы проиграли', // Вы проиграли
+    draw: 'Ничья', //Ничья
+    waitOfTheEnd: 'Ожидайте окончания игры' // Ожидайте окончания игры
   },
   be: {
     login: 'Увайсці ў рахунак',
@@ -170,6 +202,14 @@ export const languages = {
     language: 'МОВА',
     selected: 'ВЫБРАНА',
     bought: 'КУПЛЕНА',
+
+    // Multiplayer mode
+    yourResult: 'Ваш вынік', // Вы победили
+    enemyResult: 'Вынік суперніка', //Результат врага
+    youWin: 'Вы перамаглі', // Вы победили
+    youLost: 'Вы прайгралі', // Вы проиграли
+    draw: 'Чые', //Ничья
+    waitOfTheEnd: 'Чакайце заканчэння гульні' // Ожидайте окончания игры
   },
   kz: {
     login: 'Аккаунтқа кіру',
@@ -200,6 +240,14 @@ export const languages = {
     language: 'ТІЛ',
     selected: 'ТАҢДАЛДЫ',
     bought: 'САТЫП АЛЫНДЫ',
+
+    // Multiplayer mode
+    yourResult: 'Сіздің нәтижеңіз', // Вы победили
+    enemyResult: 'Қарсыластың нәтижесі', //Результат врага
+    youWin: 'Сіз жеңдіңіз', // Вы победили
+    youLost: 'Сіз жоғалттыңыз', // Вы проиграли
+    draw: 'Тең ойыня', //Ничья
+    waitOfTheEnd: 'Ойынның аяқталуын күтіңіз' // Ожидайте окончания игры
   },
   uk: {
     login: 'Увійти в аккаунт',
@@ -230,6 +278,14 @@ export const languages = {
     language: 'МОВА',
     selected: 'ВИБРАНО',
     bought: 'КУПЛЕНО',
+    
+    // Multiplayer mode
+    yourResult: 'Ваш результат', // Вы победили
+    enemyResult: 'Результат суперника', //Результат врага
+    youWin: 'Ви перемогли', // Вы победили
+    youLost: 'Ви програли', // Вы проиграли
+    draw: 'Нiчия', //Ничья
+    waitOfTheEnd: 'Чекайте на закiнчення гри' // Ожидайте окончания игры
   },
 }
 export function saveStates() {

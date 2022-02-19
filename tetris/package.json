@@ -29,6 +29,7 @@
     "webpack-remove-empty-scripts": "^0.7.1"
   },
   "dependencies": {
+    "@microsoft/signalr": "^6.0.2",
     "tiny-slider": "^2.9.4"
   }
 }
