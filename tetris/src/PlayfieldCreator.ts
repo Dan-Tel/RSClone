@@ -2,7 +2,7 @@ import GameController from './GameController';
 import PlayField from './PlayField';
 import SoundService from './services/SoundService';
 import IPlayFieldSettings from './settings/IPlayFieldSettings';
-import states from './states';
+import states, { languages } from './states';
 
 export default class PlayFieldCreator {
   pageContainer: HTMLDivElement;

@@ -2,7 +2,7 @@ import PlayFieldCreator from '../PlayfieldCreator';
 import BasePage from './BasePage';
 import IKeyHandlerSettings from '../settings/IKeyHandlerSettings';
 import GameController from '../GameController';
-import states, { updateStates } from '../states';
+import states, { languages, updateStates } from '../states';
 
 export default class ClassicModePage extends BasePage {
   pageContainer: HTMLDivElement;
@@ -32,11 +32,11 @@ export default class ClassicModePage extends BasePage {
     <div class="win-screen">
         <img class="win-logo" src="assets/svg/crown.svg"></img>
         <div class="win-screen__wrapper">
-            <h1>ПОЗДРАВЛЯЕМ!</h1>
-            <p class="current-score">Текущий счёт: 00000</p>
-            <p class="record-score">Рекордный счёт: 00000</p>
+            <h1>${languages[states.lang].win}!</h1>
+            <p class="current-score">${languages[states.lang].currentScore}: 00000</p>
+            <p class="record-score">${languages[states.lang].recordScore}: 00000</p>
         </div>
-        <a href="" class="win-screen__button">Назад</a>
+        <a href="/#home" class="win-screen__button">${languages[states.lang].back}</a>
     </div>
 
     <div class="timer-overlay">3</div>
@@ -63,7 +63,6 @@ export default class ClassicModePage extends BasePage {
               gameController.playField.render(gameController.getState());
               break;
             case keySettings.moveDown:
-              console.log(states);
               playfield1.moveDown();
               break;
             default:
