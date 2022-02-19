@@ -1,5 +1,6 @@
 import * as signalR from "@microsoft/signalr";
 import GuidGenerator from "../helpers/GuidGenerator";
+import MultiplayerFieldCreator from "../MultiplayerFieldCreator";
 import PlayFieldCreator from "../PlayfieldCreator";
 import { SignalRHubUrl } from "../settings/Urls";
 
@@ -19,7 +20,7 @@ export default class MultiplayerService {
     return connectionId;
   }
 
-  async GetSignalRConnection(myPlayField: PlayFieldCreator, enemyPlayField: PlayFieldCreator): Promise<signalR.HubConnection> {
+  async GetSignalRConnection(myPlayField: MultiplayerFieldCreator, enemyPlayField: PlayFieldCreator): Promise<signalR.HubConnection> {
     const connection = new signalR.HubConnectionBuilder()
       .withUrl(SignalRHubUrl).build();
 
@@ -36,6 +37,19 @@ export default class MultiplayerService {
 
     connection.on("EnemyGameStateUpdated", (gamestate) => {
       enemyPlayField.playField.render(gamestate);
+    });
+
+    connection.on("EnemyLost", (enemyScore) => {
+      myPlayField.enemyScore = enemyScore;
+      myPlayField.enemyIsLost = true;
+      if(myPlayField.gameController.score > enemyScore) {
+        myPlayField.gameOver();
+        connection.invoke("SendLossMessage", sessionStorage.getItem('enemy'), myPlayField.gameController.score)
+      }
+
+      if(myPlayField.isGameOver){
+        myPlayField.gameOver();
+      }
     });
 
     try {

@@ -4,7 +4,8 @@ import PlayFieldCreator from "./PlayfieldCreator";
 export default class MultiplayerPlayFieldCreator extends PlayFieldCreator {
 
   hubConnection: HubConnection | null = null;
-
+  enemyScore: number = 0;
+  enemyIsLost: boolean = false;
   constructor(pageContainer, gameContainer) {
     super(pageContainer, gameContainer);
   }
@@ -32,6 +33,7 @@ export default class MultiplayerPlayFieldCreator extends PlayFieldCreator {
         this.stopTimer();
   
         if (this.isWinner) {
+          this.hubConnection?.invoke('SendLossMessage', sessionStorage.getItem('enemy'), this.gameController.score);
           this.gameOver();
         }
       }
@@ -49,12 +51,23 @@ export default class MultiplayerPlayFieldCreator extends PlayFieldCreator {
   }
 
   gameOver = () => {
-    const winScreen = this.pageContainer.querySelector('.win-screen') as HTMLDivElement;
-
-        (winScreen.querySelector('.current-score') as HTMLDivElement).textContent = `Текущий счёт: ${this.gameController.score}`;
-
-        // ! Надо поменять record score на те которые в базе данных :D
-        (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `Рекордный счёт: ${this.gameController.score}`;   
-        winScreen.classList.add('show');
+    const gameOverScreen = this.pageContainer.querySelector('.win-screen') as HTMLDivElement;
+    (gameOverScreen.querySelector('.current-score') as HTMLDivElement).textContent = `Ваш результат: ${this.gameController.score}`;
+ 
+    gameOverScreen.classList.add('show');
+    
+    if(this.enemyIsLost) {
+      (gameOverScreen.querySelector('.enemy-score') as HTMLDivElement).textContent = `Результат соперника: ${this.enemyScore}`;
+      if(this.gameController.score > this.enemyScore) {
+        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = 'Вы победили!';
+      } else if (this.gameController.score < this.enemyScore){
+        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = 'Вы проиграли :(';
+      } else {
+        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = 'Ничья!';
+      }
+    }
+    else {
+      (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = 'Ожидайте окончания игры';
+    }
   }
 }

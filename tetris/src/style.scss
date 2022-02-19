@@ -439,6 +439,10 @@ html {
     transform: translate(-50%, -50%);
     opacity: 1;
   }
+
+  &__label {
+    text-align: center;
+  }
 }
 
 .timer-overlay {
@@ -475,7 +479,7 @@ html {
     font-weight: 700;
   }
 
-  & .current-score {
+  & .current-score, & .enemy-score {
     font-size: 28px;
     color: #ffffff;
     font-weight: 700;
