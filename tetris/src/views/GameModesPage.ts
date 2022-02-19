@@ -12,7 +12,7 @@ export default class GameModespage extends BasePage {
             <source src="assets/videos/tetris-bg2.mp4" type="video/mp4">
         </video>
 
-        <a class="back-btn" href="/"><img src="./assets/svg/back.svg"></a>
+        <a class="back-btn" href="/#home"><img src="./assets/svg/back.svg"></a>
   
         <div class="game-mode__card">
             <div class="mode__name">

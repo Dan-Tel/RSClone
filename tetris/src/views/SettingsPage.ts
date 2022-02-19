@@ -15,7 +15,7 @@ export default class SettingsPage extends BasePage {
         <div class="main-menu">
             <div class="main__logo"></div>
             <ul class="menu__list">
-                <a href="/"><li class="menu__main"></li></a>
+                <a href="/#home"><li class="menu__main"></li></a>
                 <a href="/#shop"><li class="menu__shop"></li></a>
                 <li class="menu__settings"></li>
             </ul>

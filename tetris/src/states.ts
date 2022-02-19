@@ -22,6 +22,10 @@ const states: IState = {
 
 export const languages = {
   it: {
+    login: 'Registrazione',
+    email: 'E-mail',
+    password: 'Parola d\'ordine',
+    enter: 'Entrare',
     play: 'GIOCARE',
     back: 'INDIETRO',
     currentScore: 'Profilo corrente',
@@ -48,6 +52,10 @@ export const languages = {
     bought: 'ACQUISTATO',
   },
   de: {
+    login: 'Anmeldung',
+    email: 'E-mail',
+    password: 'Passwort',
+    enter: 'Betreten',
     play: 'ABSPIELEN',
     back: 'ZURÜCK',
     currentScore: 'Aktuelles Konto',
@@ -74,6 +82,10 @@ export const languages = {
     bought: 'GEKAUFT',
   },
   en: {
+    login: 'Sign in',
+    email: 'E-mail',
+    password: 'Password',
+    enter: 'Enter',
     play: 'PLAY',
     back: 'BACK',
     currentScore: 'Current score',
@@ -100,6 +112,10 @@ export const languages = {
     bought: 'BOUGHT',
   },
   ru: {
+    login: 'Войти в аккаунт',
+    email: 'Почта',
+    password: 'Пароль',
+    enter: 'Войти',
     play: 'ИГРАТЬ',
     back: 'НАЗАД',
     currentScore: 'Текущий счёт',
@@ -126,6 +142,10 @@ export const languages = {
     bought: 'КУПЛЕНО',
   },
   be: {
+    login: 'Увайсці ў рахунак',
+    email: 'Пошта',
+    password: 'Пароль',
+    enter: 'Увайсці',
     play: 'ГУЛЬНЯ',
     back: 'НАЗАД',
     currentScore: 'Бягучы бал',
@@ -152,6 +172,10 @@ export const languages = {
     bought: 'КУПЛЕНА',
   },
   kz: {
+    login: 'Аккаунтқа кіру',
+    email: 'Пошта',
+    password: 'Құпия сөз',
+    enter: 'Кіру',
     play: 'ОЙНАУ',
     back: 'ШЫҒУ',
     currentScore: 'Ағымдағы ұпай',
@@ -178,6 +202,10 @@ export const languages = {
     bought: 'САТЫП АЛЫНДЫ',
   },
   uk: {
+    login: 'Увійти в аккаунт',
+    email: 'Пошта',
+    password: 'Пароль',
+    enter: 'Увійти',
     play: 'ГРАТИ',
     back: 'НАЗАД',
     currentScore: 'Поточний бали',

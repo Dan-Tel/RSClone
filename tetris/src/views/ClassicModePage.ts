@@ -36,7 +36,7 @@ export default class ClassicModePage extends BasePage {
             <p class="current-score">${languages[states.lang].currentScore}: 00000</p>
             <p class="record-score">${languages[states.lang].recordScore}: 00000</p>
         </div>
-        <a href="" class="win-screen__button">${languages[states.lang].back}</a>
+        <a href="/#home" class="win-screen__button">${languages[states.lang].back}</a>
     </div>
 
     <div class="timer-overlay">3</div>
