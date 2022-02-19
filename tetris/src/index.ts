@@ -5,6 +5,7 @@ import ErrorPage from './views/ErrorPage';
 import GameModespage from './views/GameModesPage';
 import HomePage from './views/HomePage';
 import ShopPage from './views/ShopPage';
+import SettingsPage from './views/SettingsPage';
 
 /* Routing section */
 const pageContainer = document.querySelector('.page-container') as HTMLDivElement;
@@ -17,6 +18,8 @@ const getPageByUrl = (parsedUrl) => {
         return new HomePage(pageContainer);
       case '/#shop':
         return new ShopPage(pageContainer);
+      case '/#settings':
+        return new SettingsPage(pageContainer);
       case '/#modes':
         return new GameModespage(pageContainer);
       case '/#classic':
