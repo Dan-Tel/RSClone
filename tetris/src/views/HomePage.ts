@@ -1,5 +1,5 @@
 import BasePage from './BasePage';
-import states from '../states';
+import states, { languages } from '../states';
 
 export default class HomePage extends BasePage {
   view: string;
@@ -18,7 +18,7 @@ export default class HomePage extends BasePage {
 
         <div class="main-container">
             <img class="tetris-logo" src="./assets/images/tetris-logo.png">
-            <a href="/#modes" class="main__play-btn">Играть</a>
+            <a href="/#modes" class="main__play-btn">${languages[states.lang].play}</a>
         </div>
 
         <div class="main-menu">
@@ -26,7 +26,7 @@ export default class HomePage extends BasePage {
             <ul class="menu__list">
                 <li class="menu__main"></li>
                 <a href="/#shop"><li class="menu__shop"></li></a>
-                <li class="menu__settings"></li>
+                <a href="/#settings"><li class="menu__settings"></li></a>
             </ul>
         </div>
       </section>
