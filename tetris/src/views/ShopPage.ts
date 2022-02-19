@@ -22,7 +22,7 @@ export default class ShopPage extends BasePage {
         <div class="main-menu">
           <div class="main__logo"></div>
           <ul class="menu__list">
-            <a href="/"><li class="menu__main"></li></a>
+            <a href="/#home"><li class="menu__main"></li></a>
             <li class="menu__shop"></li>
             <a href="/#settings"><li class="menu__settings"></li></a>
           </ul>
