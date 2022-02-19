@@ -1,5 +1,6 @@
 import { HubConnection } from "@microsoft/signalr";
 import PlayFieldCreator from "./PlayfieldCreator";
+import states, { languages } from "./states";
 
 export default class MultiplayerPlayFieldCreator extends PlayFieldCreator {
 
@@ -9,14 +10,6 @@ export default class MultiplayerPlayFieldCreator extends PlayFieldCreator {
   constructor(pageContainer, gameContainer) {
     super(pageContainer, gameContainer);
   }
-
-  // initHubConnection(hubConnection) {
-  //   this.hubConnection = hubConnection();
-  //   this.hubConnection?.on('EnemyIsLose', (score) => {
-  //     sessionStorage.setItem('enemy', enemyGuid);
-  //     myPlayField.create();
-  //   });
-  // } 
 
   moveDown = () => {
       if(this.hubConnection) {
@@ -52,22 +45,22 @@ export default class MultiplayerPlayFieldCreator extends PlayFieldCreator {
 
   gameOver = () => {
     const gameOverScreen = this.pageContainer.querySelector('.win-screen') as HTMLDivElement;
-    (gameOverScreen.querySelector('.current-score') as HTMLDivElement).textContent = `Ваш результат: ${this.gameController.score}`;
+    (gameOverScreen.querySelector('.current-score') as HTMLDivElement).textContent = `${languages[states.lang].yourResult}: ${this.gameController.score}`;
  
     gameOverScreen.classList.add('show');
     
     if(this.enemyIsLost) {
-      (gameOverScreen.querySelector('.enemy-score') as HTMLDivElement).textContent = `Результат соперника: ${this.enemyScore}`;
+      (gameOverScreen.querySelector('.enemy-score') as HTMLDivElement).textContent = `${languages[states.lang].enemyResult}: ${this.enemyScore}`;
       if(this.gameController.score > this.enemyScore) {
-        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = 'Вы победили!';
+        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = `${languages[states.lang].youWin}!`;
       } else if (this.gameController.score < this.enemyScore){
-        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = 'Вы проиграли :(';
+        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = `${languages[states.lang].youLost}! :(`;
       } else {
-        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = 'Ничья!';
+        (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = `${languages[states.lang].draw}! :(`;
       }
     }
     else {
-      (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = 'Ожидайте окончания игры';
+      (gameOverScreen.querySelector('.win-screen__label') as HTMLDivElement).textContent = `${languages[states.lang].waitOfTheEnd}...`;
     }
   }
 }

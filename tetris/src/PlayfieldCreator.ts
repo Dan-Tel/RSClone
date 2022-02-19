@@ -59,10 +59,9 @@ export default class PlayFieldCreator {
   gameOver = () => {
     const winScreen = this.pageContainer.querySelector('.win-screen') as HTMLDivElement;
 
-        (winScreen.querySelector('.current-score') as HTMLDivElement).textContent = `Текущий счёт: ${this.gameController.score}`;
-
+    (winScreen.querySelector('.current-score') as HTMLDivElement).textContent = `${languages[states.lang].currentScore}: ${this.gameController.score}`;
         // ! Надо поменять record score на те которые в базе данных :D
-        (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `Рекордный счёт: ${this.gameController.score}`;
+        (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `${languages[states.lang].recordScore}: ${this.gameController.score}`;
 
         states.coins += this.gameController.score / 2;
 

@@ -63,7 +63,6 @@ export default class MultiplayerPage extends BasePage {
             <img class="win-logo" src="assets/svg/crown.svg"></img>
             <div class="win-screen__wrapper">
                 <h1 class="win-screen__label"></h1>
-                <h2 class="win-screen__result">Итоги игры</h2>
                 <p class="current-score">Ваш счёт: 00000</p>
                 <p class="enemy-score"></p>
             </div>
