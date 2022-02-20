@@ -1,18 +1,18 @@
-import GameController from "../GameController";
-import PlayFieldCreator from "../PlayfieldCreator";
-import IKeyHandlerSettings from "../settings/IKeyHandlerSettings";
-import BasePage from "./BasePage";
-import * as signalR from "@microsoft/signalr";
-import { FindEnemyUrl, SignalRHubUrl } from "../settings/Urls";
-import MultiplayerService from "../services/MultiplayerService";
-import MultiplayerFieldCreator from "../MultiplayerFieldCreator";
-
-
+import * as signalR from '@microsoft/signalr';
+import GameController from '../GameController';
+import PlayFieldCreator from '../PlayfieldCreator';
+import IKeyHandlerSettings from '../settings/IKeyHandlerSettings';
+import BasePage from './BasePage';
+import { FindEnemyUrl, SignalRHubUrl } from '../settings/Urls';
+import MultiplayerService from '../services/MultiplayerService';
+import MultiplayerFieldCreator from '../MultiplayerFieldCreator';
 
 export default class MultiplayerPage extends BasePage {
   // view: string;
   multiplayerService: MultiplayerService;
+
   gameIsOver: boolean;
+
   enemyScore: number;
 
   constructor(pageContainer, multiplayerService) {
@@ -25,8 +25,8 @@ export default class MultiplayerPage extends BasePage {
   findEnemy() {
     fetch(`${FindEnemyUrl}/?groupGuid=${this.multiplayerService.connectionId}`, {
       headers: {
-        'mode': 'cors'  
-      }
+        mode: 'cors',
+      },
     });
   }
 
@@ -66,7 +66,7 @@ export default class MultiplayerPage extends BasePage {
                 <p class="current-score">Ваш счёт: 00000</p>
                 <p class="enemy-score"></p>
             </div>
-            <a href="" class="win-screen__button">Назад</a>
+            <a href="/#home" class="win-screen__button">Назад</a>
         </div>
     
         <div class="timer-overlay hide">3</div>
@@ -96,12 +96,11 @@ export default class MultiplayerPage extends BasePage {
 
     const registerKeyHandler = (gameController: GameController, keySettings: IKeyHandlerSettings) => {
       document.addEventListener('keydown', (event) => {
-
         const gameState = myPlayField.gameController.getState();
         connection.invoke('SendGameState', {
           PlayfieldBoard: gameState.playfieldBoard,
           Score: gameState.score,
-          Lines: gameState.lines
+          Lines: gameState.lines,
         }, sessionStorage.getItem('enemy'));
 
         if (myPlayField.canPlay) {
