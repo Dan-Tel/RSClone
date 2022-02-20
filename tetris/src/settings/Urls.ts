@@ -1,4 +1,9 @@
-// export const ServerBaseUrl = 'https://tetriscloners.azurewebsites.net';
 export const ServerBaseUrl = 'https://tetriscloners.azurewebsites.net';
+//export const ServerBaseUrl = 'https://localhost:44357';
 export const FindEnemyUrl = `${ServerBaseUrl}/api/Game/FindEnemy`;
 export const SignalRHubUrl = `${ServerBaseUrl}/rooms`;
+export const LoginUrl = `${ServerBaseUrl}/api/AuthManagement/Login`;
+export const RegisterUrl = `${ServerBaseUrl}/api/AuthManagement/Register`;
+export const UserInfoUrl = `${ServerBaseUrl}/api/Users/UserInfo`;
+export const UpdateScoreUrl = `${ServerBaseUrl}/api/Users/UpdateBestResult`;
+export const LeadersUrl = `${ServerBaseUrl}/api/Users/GetLeaders`;

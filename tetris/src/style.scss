@@ -171,6 +171,10 @@ html {
   & .menu__leaderboard {
     background: url('./assets/svg/cup.svg') no-repeat;
   }
+
+  & .menu__logout {
+    background: url('./assets/svg/logout.svg') no-repeat;
+  }
 }
 
 .main-header {
@@ -836,6 +840,12 @@ input[type=range].sfx-volume::-webkit-slider-thumb {
 
 .registration-btn {
   @include playButton(100%, 90px);
+}
+
+.registration-link {
+  color: #275294;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 $duration: 2s;

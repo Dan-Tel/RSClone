@@ -1,12 +1,12 @@
 import BasePage from './BasePage';
 import states, { languages } from '../states';
+import UserService from '../services/UserService';
 
 export default class HomePage extends BasePage {
   view: string;
 
   constructor(pageContainer) {
     super(pageContainer);
-
     this.view = `
       <section class="preloader">
         <div class="preloader__wrapper">
@@ -28,7 +28,7 @@ export default class HomePage extends BasePage {
         <video src="assets/videos/tetris-bg1.mp4" autoplay loop></video>
 
         <header class="main-header">
-            <div class="player__name"><span class="player__level">${states.rank}</span>${states.nickname}</div>
+            <div class="player__name"><span class="player__level">${states.rank}</span><span class="player__name-value">${states.nickname}</span></div>
             <div class="player__coins"><span class="coin__logo"></span>0.0</div>
         </header>
 
@@ -44,15 +44,29 @@ export default class HomePage extends BasePage {
                 <a href="/#shop"><li class="menu__shop"></li></a>
                 <a href="/#settings"><li class="menu__settings"></li></a>
                 <a href="/#leaderboard"><li class="menu__leaderboard"></li></a>
+                <a href="/"><li class="menu__logout"></li></a>
             </ul>
         </div>
       </section>
       `;
   }
 
-  render() {
+  async render() {
     this.pageContainer.innerHTML = this.view;
+    const userInfo = await UserService.getInfo();
+    const playerNameConteiner = this.pageContainer.querySelector('.player__name-value') as HTMLDivElement;
+    playerNameConteiner.textContent = userInfo.nickname;
+
+    const positionContainer = this.pageContainer.querySelector('.player__level') as HTMLSpanElement;
+    positionContainer.textContent = userInfo.position;
     const coinsContainer = this.pageContainer.querySelector('.player__coins') as HTMLDivElement;
     coinsContainer.innerHTML = `<span class="coin__logo"></span>${states.coins}`;
+
+    const logout = document.querySelector('.menu__logout');
+    logout?.addEventListener('click', (e) => {
+      e.preventDefault();
+      localStorage.removeItem('token');
+      document.location.hash = '';
+    })
   }
 }

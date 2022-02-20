@@ -8,6 +8,7 @@ interface IState {
   musicVol: number,
   sfxVol: number,
   rank: number,
+  bestResult: number
 }
 
 const states: IState = {
@@ -20,11 +21,14 @@ const states: IState = {
   musicVol: 0.5,
   sfxVol: 0.5,
   rank: 1,
+  bestResult: 0
 }
 
 export const languages = {
   it: {
     login: 'Registrazione',
+    registration: 'Deposito',
+    register: 'Iscriviti',
     email: 'E-mail',
     password: 'Parola d\'ordine',
     nickname: 'Login',
@@ -64,6 +68,8 @@ export const languages = {
   },
   de: {
     login: 'Anmeldung',
+    registration: 'Eintragung',
+    register: 'Sich registrieren lassen',
     email: 'E-mail',
     password: 'Passwort',
     nickname: 'Login',
@@ -103,6 +109,8 @@ export const languages = {
   },
   en: {
     login: 'Sign in',
+    registration: 'Registration',
+    register: 'Register',
     email: 'E-mail',
     password: 'Password',
     nickname: 'Login',
@@ -142,9 +150,11 @@ export const languages = {
   },
   ru: {
     login: 'Войти в аккаунт',
+    registration: 'Регистрация',
+    register: 'Зарегистрироваться',
     email: 'Почта',
     password: 'Пароль',
-    nickname: 'Логин',
+    nickname: 'Никнейм',
     enter: 'Войти',
     play: 'ИГРАТЬ',
     back: 'НАЗАД',
@@ -181,6 +191,8 @@ export const languages = {
   },
   be: {
     login: 'Увайсці ў рахунак',
+    registration: 'Рэгістрацыя',
+    register: 'Зарэгістравацца',
     email: 'Пошта',
     password: 'Пароль',
     nickname: 'Логин',
@@ -220,6 +232,8 @@ export const languages = {
   },
   kz: {
     login: 'Аккаунтқа кіру',
+    registration: 'Тіркеу',
+    register: 'Тіркелу',
     email: 'Пошта',
     password: 'Құпия сөз',
     nickname: 'Логин',
@@ -259,6 +273,8 @@ export const languages = {
   },
   uk: {
     login: 'Увійти в аккаунт',
+    registration: 'Реєстрація',
+    register: 'Зареєструватися',
     email: 'Пошта',
     password: 'Пароль',
     nickname: 'Логин',
