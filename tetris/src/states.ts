@@ -7,10 +7,11 @@ interface IState {
   lang: string,
   musicVol: number,
   sfxVol: number,
+  rank: number,
 }
 
 const states: IState = {
-  nickname: '',
+  nickname: 'Nickname',
   coins: 0,
   lvl: 0,
   availableSkins: new Set<string>(['skin-1']),
@@ -18,6 +19,7 @@ const states: IState = {
   lang: 'ru',
   musicVol: 0.5,
   sfxVol: 0.5,
+  rank: 1,
 }
 
 export const languages = {
@@ -25,6 +27,7 @@ export const languages = {
     login: 'Registrazione',
     email: 'E-mail',
     password: 'Parola d\'ordine',
+    nickname: 'Login',
     enter: 'Entrare',
     play: 'GIOCARE',
     back: 'INDIETRO',
@@ -50,19 +53,20 @@ export const languages = {
     language: 'Lingua',
     selected: 'SELEZIONATO',
     bought: 'ACQUISTATO',
-    
+
     // Multiplayer mode
     yourResult: 'Il tuo risultato', // Вы победили
-    enemyResult: 'Risultato avversario', //Результат врага
+    enemyResult: 'Risultato avversario', // Результат врага
     youWin: 'Hai vinto', // Вы победили
     youLost: 'Hai perso', // Вы проиграли
-    draw: 'Pareggiare', //Ничья
-    waitOfTheEnd: 'Aspettatevi la fine del gioco' // Ожидайте окончания игры
+    draw: 'Pareggiare', // Ничья
+    waitOfTheEnd: 'Aspettatevi la fine del gioco', // Ожидайте окончания игры
   },
   de: {
     login: 'Anmeldung',
     email: 'E-mail',
     password: 'Passwort',
+    nickname: 'Login',
     enter: 'Betreten',
     play: 'ABSPIELEN',
     back: 'ZURÜCK',
@@ -91,16 +95,17 @@ export const languages = {
 
     // Multiplayer mode
     yourResult: 'Ihr Ergebnis', // Вы победили
-    enemyResult: 'Das Ergebnis des Gegners', //Результат врага
+    enemyResult: 'Das Ergebnis des Gegners', // Результат врага
     youWin: 'Sie haben gewonnen', // Вы победили
     youLost: 'Sie haben verloren', // Вы проиграли
-    draw: 'Unentschieden', //Ничья
-    waitOfTheEnd: 'Warten Sie auf das Ende des Spiels' // Ожидайте окончания игры
+    draw: 'Unentschieden', // Ничья
+    waitOfTheEnd: 'Warten Sie auf das Ende des Spiels', // Ожидайте окончания игры
   },
   en: {
     login: 'Sign in',
     email: 'E-mail',
     password: 'Password',
+    nickname: 'Login',
     enter: 'Enter',
     play: 'PLAY',
     back: 'BACK',
@@ -129,16 +134,17 @@ export const languages = {
 
     // Multiplayer mode
     yourResult: 'Your result', // Вы победили
-    enemyResult: 'Opponent`s result', //Результат врага
+    enemyResult: 'Opponent`s result', // Результат врага
     youWin: 'You`ve won', // Вы победили
     youLost: 'You`ve lost', // Вы проиграли
-    draw: 'Draw', //Ничья
-    waitOfTheEnd: 'Wait till the end' // Ожидайте окончания игры
+    draw: 'Draw', // Ничья
+    waitOfTheEnd: 'Wait till the end', // Ожидайте окончания игры
   },
   ru: {
     login: 'Войти в аккаунт',
     email: 'Почта',
     password: 'Пароль',
+    nickname: 'Логин',
     enter: 'Войти',
     play: 'ИГРАТЬ',
     back: 'НАЗАД',
@@ -167,16 +173,17 @@ export const languages = {
 
     // Multiplayer mode
     yourResult: 'Ваш результат', // Вы победили
-    enemyResult: 'Результат соперника', //Результат врага
+    enemyResult: 'Результат соперника', // Результат врага
     youWin: 'Вы победили', // Вы победили
     youLost: 'Вы проиграли', // Вы проиграли
-    draw: 'Ничья', //Ничья
-    waitOfTheEnd: 'Ожидайте окончания игры' // Ожидайте окончания игры
+    draw: 'Ничья', // Ничья
+    waitOfTheEnd: 'Ожидайте окончания игры', // Ожидайте окончания игры
   },
   be: {
     login: 'Увайсці ў рахунак',
     email: 'Пошта',
     password: 'Пароль',
+    nickname: 'Логин',
     enter: 'Увайсці',
     play: 'ГУЛЬНЯ',
     back: 'НАЗАД',
@@ -205,16 +212,17 @@ export const languages = {
 
     // Multiplayer mode
     yourResult: 'Ваш вынік', // Вы победили
-    enemyResult: 'Вынік суперніка', //Результат врага
+    enemyResult: 'Вынік суперніка', // Результат врага
     youWin: 'Вы перамаглі', // Вы победили
     youLost: 'Вы прайгралі', // Вы проиграли
-    draw: 'Чые', //Ничья
-    waitOfTheEnd: 'Чакайце заканчэння гульні' // Ожидайте окончания игры
+    draw: 'Чые', // Ничья
+    waitOfTheEnd: 'Чакайце заканчэння гульні', // Ожидайте окончания игры
   },
   kz: {
     login: 'Аккаунтқа кіру',
     email: 'Пошта',
     password: 'Құпия сөз',
+    nickname: 'Логин',
     enter: 'Кіру',
     play: 'ОЙНАУ',
     back: 'ШЫҒУ',
@@ -243,16 +251,17 @@ export const languages = {
 
     // Multiplayer mode
     yourResult: 'Сіздің нәтижеңіз', // Вы победили
-    enemyResult: 'Қарсыластың нәтижесі', //Результат врага
+    enemyResult: 'Қарсыластың нәтижесі', // Результат врага
     youWin: 'Сіз жеңдіңіз', // Вы победили
     youLost: 'Сіз жоғалттыңыз', // Вы проиграли
-    draw: 'Тең ойыня', //Ничья
-    waitOfTheEnd: 'Ойынның аяқталуын күтіңіз' // Ожидайте окончания игры
+    draw: 'Тең', // Ничья
+    waitOfTheEnd: 'Ойынның аяқталуын күтіңіз', // Ожидайте окончания игры
   },
   uk: {
     login: 'Увійти в аккаунт',
     email: 'Пошта',
     password: 'Пароль',
+    nickname: 'Логин',
     enter: 'Увійти',
     play: 'ГРАТИ',
     back: 'НАЗАД',
@@ -278,14 +287,14 @@ export const languages = {
     language: 'МОВА',
     selected: 'ВИБРАНО',
     bought: 'КУПЛЕНО',
-    
+
     // Multiplayer mode
     yourResult: 'Ваш результат', // Вы победили
-    enemyResult: 'Результат суперника', //Результат врага
+    enemyResult: 'Результат суперника', // Результат врага
     youWin: 'Ви перемогли', // Вы победили
     youLost: 'Ви програли', // Вы проиграли
-    draw: 'Нiчия', //Ничья
-    waitOfTheEnd: 'Чекайте на закiнчення гри' // Ожидайте окончания игры
+    draw: 'Нiчия', // Ничья
+    waitOfTheEnd: 'Чекайте на закiнчення гри', // Ожидайте окончания игры
   },
 }
 export function saveStates() {

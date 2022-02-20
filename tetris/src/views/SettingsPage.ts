@@ -9,6 +9,22 @@ export default class SettingsPage extends BasePage {
     super(pageContainer);
 
     this.view = `
+      <section class="preloader">
+        <div class="preloader__wrapper">
+          <div class='spinner'>
+            <div class='spinner__block'>
+              <div class='spinner__item'></div>
+              <div class='spinner__item'></div>
+              <div class='spinner__item'></div>
+              <div class='spinner__item'></div>
+              <div class='spinner__item'></div>
+              <div class='spinner__item'></div>
+              <div class='spinner__item'></div>
+              <div class='spinner__item'></div>
+            </div>
+          </div>
+        </div>
+      </section>
       <section class="settings-page">
         <video src="assets/videos/tetris-bg3.mp4" autoplay loop></video>
 
@@ -17,7 +33,8 @@ export default class SettingsPage extends BasePage {
             <ul class="menu__list">
                 <a href="/#home"><li class="menu__main"></li></a>
                 <a href="/#shop"><li class="menu__shop"></li></a>
-                <li class="menu__settings"></li>
+                <li class="menu__settings active"></li>
+                <a href="/#leaderboard"><li class="menu__leaderboard"></li></a>
             </ul>
         </div>
 
@@ -25,12 +42,12 @@ export default class SettingsPage extends BasePage {
           <h2 class="settings-title music-title">${languages[states.lang].soundSettings}</h2>
 
           <div class="music-settings__wrapper">
-            <h4 class="music-settings__title">${languages[states.lang].musicVol}</h4>
+            <p class="music-settings__title">${languages[states.lang].musicVol}</p>
             <input class="music-volume" type="range" min="0" max="10" value="5">
           </div>
 
           <div class="sfx-settings__wrapper">
-            <h4 class="sfx-settings__title">${languages[states.lang].sfxVol}</h4>
+            <p class="sfx-settings__title">${languages[states.lang].sfxVol}</p>
             <input class="sfx-volume" type="range" min="0" max="10" value="5">
           </div>
           
@@ -38,43 +55,43 @@ export default class SettingsPage extends BasePage {
           <div id="language-slider">
             <div>
               <div class="lang-box">
-                <div class="lang-img lang-it"></div>
+                <img class="lang-img lang-it" src="./assets/flags/lang-it.png">
                 <p class="lang-title">Italiano</p>
               </div>
             </div>
             <div>
               <div class="lang-box">
-                <div class="lang-img lang-de"></div>
+                <img class="lang-img lang-de" src="./assets/flags/lang-de.png">
                 <p class="lang-title">Deutsch</p>
               </div>
             </div>
             <div>
               <div class="lang-box">
-                <div class="lang-img lang-en"></div>
+                <img class="lang-img lang-en" src="./assets/flags/lang-en.png">
                 <p class="lang-title">English</p>
               </div>
             </div>
             <div>
               <div class="lang-box">
-                <div class="lang-img lang-ru"></div>
+                <img class="lang-img lang-ru" src="./assets/flags/lang-ru.png">
                 <p class="lang-title">Русский</p>
               </div>
             </div>
             <div>
               <div class="lang-box">
-                <div class="lang-img lang-be"></div>
+                <img class="lang-img lang-be" src="./assets/flags/lang-be.png">
                 <p class="lang-title">Беларускі</p>
               </div>
             </div>
             <div>
               <div class="lang-box">
-                <div class="lang-img lang-kz"></div>
+                <img class="lang-img lang-kz" src="./assets/flags/lang-kz.png">
                 <p class="lang-title">Қазақша</p>
               </div>
             </div>
             <div>
               <div class="lang-box">
-                <div class="lang-img lang-uk"></div>
+                <img class="lang-img lang-uk" src="./assets/flags/lang-uk.png">
                 <p class="lang-title">Український</p>
               </div>
             </div>

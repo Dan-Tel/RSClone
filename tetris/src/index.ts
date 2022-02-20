@@ -9,6 +9,7 @@ import MultiplayerPage from './views/MultiplayerPage';
 import ShopPage from './views/ShopPage';
 import SettingsPage from './views/SettingsPage';
 import RegistrationPage from './views/RegistrationPage';
+import LeaderboardPage from './views/LeaderboardPage';
 
 /* Routing section */
 const pageContainer = document.querySelector('.page-container') as HTMLDivElement;
@@ -25,6 +26,8 @@ const getPageByUrl = (parsedUrl) => {
         return new ShopPage(pageContainer);
       case '/#settings':
         return new SettingsPage(pageContainer);
+      case '/#leaderboard':
+        return new LeaderboardPage(pageContainer);
       case '/#modes':
         return new GameModespage(pageContainer);
       case '/#classic':
@@ -54,10 +57,26 @@ const router = async () => {
   await page.render();
 };
 
-window.addEventListener('hashchange', router);
+function preloadImages() {
+  const preloader = document.querySelector('.preloader');
+  preloader?.classList.remove('hide');
+  Promise.all(Array.from(document.images).filter((img) => !img.complete).map((img) => new Promise((resolve) => { img.onload = img.onerror = resolve; }))).then(() => {
+    preloader?.classList.add('hide');
+  });
+}
+
+window.addEventListener('hashchange', () => {
+  pageContainer.classList.add('hide');
+  setTimeout(() => {
+    router();
+    preloadImages();
+    pageContainer.classList.remove('hide');
+  }, 200)
+});
 window.addEventListener('load', () => {
   updateStates();
   router();
+  preloadImages();
 });
 window.addEventListener('unload', saveStates);
 

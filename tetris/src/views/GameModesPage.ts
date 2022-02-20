@@ -7,7 +7,24 @@ export default class GameModespage extends BasePage {
   }
 
   render() {
-    this.pageContainer.innerHTML = `<section class="game-mode-page">
+    this.pageContainer.innerHTML = `
+    <section class="preloader">
+      <div class="preloader__wrapper">
+        <div class='spinner'>
+          <div class='spinner__block'>
+            <div class='spinner__item'></div>
+            <div class='spinner__item'></div>
+            <div class='spinner__item'></div>
+            <div class='spinner__item'></div>
+            <div class='spinner__item'></div>
+            <div class='spinner__item'></div>
+            <div class='spinner__item'></div>
+            <div class='spinner__item'></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="game-mode-page">
         <video autoplay muted loop>
             <source src="assets/videos/tetris-bg2.mp4" type="video/mp4">
         </video>
