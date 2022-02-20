@@ -8,18 +8,18 @@ import HomePage from './views/HomePage';
 import MultiplayerPage from './views/MultiplayerPage';
 import ShopPage from './views/ShopPage';
 import SettingsPage from './views/SettingsPage';
-import RegistrationPage from './views/RegistrationPage';
 import LeaderboardPage from './views/LeaderboardPage';
+import LoginPage from './views/LoginPage';
+import RegistrationPage from './views/RegistrationPage';
 
 /* Routing section */
 const pageContainer = document.querySelector('.page-container') as HTMLDivElement;
 
 const getPageByUrl = (parsedUrl) => {
-  // console.log(parsedUrl);
   if (parsedUrl) {
     switch (parsedUrl.resource) {
       case '/':
-        return new RegistrationPage(pageContainer);
+        return new LoginPage(pageContainer);
       case '/#home':
         return new HomePage(pageContainer);
       case '/#shop':
@@ -34,6 +34,8 @@ const getPageByUrl = (parsedUrl) => {
         return new ClassicModePage(pageContainer);
       case '/#multiplayer':
         return new MultiplayerPage(pageContainer, new MultiplayerService());
+      case '/#registration':
+        return new RegistrationPage(pageContainer);
       default:
         return new ErrorPage(pageContainer);
     }
@@ -43,7 +45,6 @@ const getPageByUrl = (parsedUrl) => {
 
 const parseUrl = () => {
   const url = document.location.pathname + document.location.hash;
-  // console.log(url);
   const urlChunks = url.substr(1).split('/');
   return {
     resource: `/${urlChunks[0]}`,
@@ -66,6 +67,10 @@ function preloadImages() {
 }
 
 window.addEventListener('hashchange', () => {
+  if(!localStorage.getItem('token') && document.location.hash !== '#registration') {
+    document.location.href = '/';
+    return;
+  }
   pageContainer.classList.add('hide');
   setTimeout(() => {
     router();

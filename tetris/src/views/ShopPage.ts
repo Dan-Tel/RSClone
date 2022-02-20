@@ -45,6 +45,7 @@ export default class ShopPage extends BasePage {
             <li class="menu__shop active"></li>
             <a href="/#settings"><li class="menu__settings"></li></a>
             <a href="/#leaderboard"><li class="menu__leaderboard"></li></a>
+            <a href="/"><li class="menu__logout"></li></a>
           </ul>
         </div>
 

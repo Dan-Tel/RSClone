@@ -35,6 +35,7 @@ export default class SettingsPage extends BasePage {
                 <a href="/#shop"><li class="menu__shop"></li></a>
                 <li class="menu__settings active"></li>
                 <a href="/#leaderboard"><li class="menu__leaderboard"></li></a>
+                <a href="/"><li class="menu__logout"></li></a>
             </ul>
         </div>
 

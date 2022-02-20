@@ -1,6 +1,7 @@
 import GameController from './GameController';
 import PlayField from './PlayField';
 import SoundService from './services/SoundService';
+import UserService from './services/UserService';
 import IPlayFieldSettings from './settings/IPlayFieldSettings';
 import states, { languages } from './states';
 
@@ -60,14 +61,12 @@ export default class PlayFieldCreator {
     const winScreen = this.pageContainer.querySelector('.win-screen') as HTMLDivElement;
 
     (winScreen.querySelector('.current-score') as HTMLDivElement).textContent = `${languages[states.lang].currentScore}: ${this.gameController.score}`;
-        // ! Надо поменять record score на те которые в базе данных :D
-        (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `${languages[states.lang].recordScore}: ${this.gameController.score}`;
-
-        states.coins += this.gameController.score / 2;
-
-        console.log('states:', states.coins, 'money:', this.gameController.score / 2);
-
-        winScreen.classList.add('show');
+    (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `${languages[states.lang].recordScore}: ${this.gameController.score > states.bestResult ? this.gameController.score : states.bestResult}`;
+    if(this.gameController.score > states.bestResult) {
+      UserService.updateBestResult(this.gameController.score);
+    }
+    states.coins += this.gameController.score / 2
+    winScreen.classList.add('show');
   }
 
   moveDown = () => {

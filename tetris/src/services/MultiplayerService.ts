@@ -54,7 +54,6 @@ export default class MultiplayerService {
 
     try {
       await connection.start();
-      console.log(localStorage.getItem('connection-id'));
       await connection.invoke("AddToGroup", localStorage.getItem('connection-id'));
     }
     catch (ex) {
