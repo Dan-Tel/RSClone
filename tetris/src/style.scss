@@ -297,6 +297,16 @@ html {
   }
 }
 
+@media screen and (max-width: 1600px) {
+  .game-mode__card {
+    transform: scale(0.8);
+
+    &:hover {
+      transform: scale(0.85);
+    }
+  }
+}
+
 .mode__name {
   display: flex;
   align-items: center;
@@ -348,7 +358,9 @@ html {
 
 
 
-.classic-game-page, .multiplayer-game-page {
+.classic-game-page,
+.multiplayer-game-page,
+.coop-game-page {
   position: relative;
   display: flex;
   align-items: center;
@@ -368,7 +380,9 @@ html {
 }
 
 .game-container,
-.game-container1 {
+.game-container1,
+.player1-container,
+.player2-container {
   position: relative;
   width: 300px;
   background-color: #2D2F3D;
@@ -382,6 +396,13 @@ html {
   justify-content: space-between;
   align-items: center;
   width: 50%;
+}
+
+.coop-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70%;
 }
 
 .game__screen {
@@ -465,7 +486,9 @@ html {
 }
 
 
-.win-screen {
+.win-screen,
+.player1-win-screen,
+.player2-win-screen {
   position: absolute;
   top: 100%;
   left: 50%;
@@ -528,8 +551,9 @@ html {
     font-weight: 700;
   }
 
-  & .current-score, & .enemy-score {
+  & .current-score, & .enemy-score, & .current1-score, & .current2-score {
     font-size: 28px;
+    text-align: center;
     color: #ffffff;
     font-weight: 700;
   }
