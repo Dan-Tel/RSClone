@@ -46,6 +46,22 @@ export default class GameModespage extends BasePage {
   
             <a href="#classic" class="game-mode__play single-play">${languages[states.lang].play}</a>
         </div>
+
+        <div class="game-mode__card">
+          <div class="mode__name">
+              <img src="assets/svg/coop.svg" class="mode__logo"></img>
+              ${languages[states.lang].coopPlayer}
+          </div>
+
+          <div class="game-mode__desc">
+              <img src="assets/svg/coop_2.svg" class="desc__logo"></img>
+              <span>
+                  ${languages[states.lang].coopPlayerDesc}
+              </span>
+          </div>
+
+          <a href="/#coop" class="game-mode__play multi-play">${languages[states.lang].play}</a>
+        </div>
   
         <div class="game-mode__card">
             <div class="mode__name">

@@ -12,6 +12,7 @@ import LeaderboardPage from './views/LeaderboardPage';
 import LoginPage from './views/LoginPage';
 import RegistrationPage from './views/RegistrationPage';
 import { soundService } from './services/SoundService';
+import CoopModePage from './views/CoopModePage';
 
 /* Routing section */
 const pageContainer = document.querySelector('.page-container') as HTMLDivElement;
@@ -35,6 +36,8 @@ const getPageByUrl = (parsedUrl) => {
         return new ClassicModePage(pageContainer);
       case '/#multiplayer':
         return new MultiplayerPage(pageContainer, new MultiplayerService());
+      case '/#coop':
+        return new CoopModePage(pageContainer);
       case '/#registration':
         return new RegistrationPage(pageContainer);
       default:

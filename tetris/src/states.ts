@@ -45,6 +45,8 @@ export const languages = {
     multiPlayer: 'GIOCO ONLINE',
     singlePlayerDesc: 'Gioca al leggendario e classico Tetris che conosci e ami!',
     multiPlayerDesc: 'Gioca al leggendario e classico Tetris con i tuoi amici!',
+    coopPlayer: 'GIOCO COOPERATIVO',
+    coopPlayerDesc: 'Gioca al leggendario e classico Tetris con i tuoi amici sullo stesso dispositivo!',
     classicSkin: 'CLASSICO',
     oresSkin: 'GEMME',
     snowSkin: 'NEVICATA',
@@ -71,6 +73,10 @@ export const languages = {
 
     lines: 'Linee',
     level: 'Livello',
+
+    gameOver: 'Game over',
+    firstPlayerScore: 'Risultato del primo giocatore',
+    secondPlayerScore: 'Risultato del secondo giocatore',
   },
   de: {
     login: 'Anmeldung',
@@ -92,6 +98,8 @@ export const languages = {
     multiPlayer: 'ONLINE SPIEL',
     singlePlayerDesc: 'Spiele das legendäre, klassische Tetris, das du kennst und liebst!',
     multiPlayerDesc: 'Spielen Sie mit Ihren Freunden den legendären Klassiker Tetris!',
+    coopPlayer: 'KOOPERATIVES SPIEL',
+    coopPlayerDesc: 'Spielen Sie den legendären, klassischen Tetris mit Ihren Freunden auf demselben Gerät!',
     classicSkin: 'KLASSISCH',
     oresSkin: 'EDELSTEINE',
     snowSkin: 'SCHNEEFALL',
@@ -118,6 +126,10 @@ export const languages = {
 
     lines: 'Linien',
     level: 'Stufe',
+
+    gameOver: 'Spiel ist aus',
+    firstPlayerScore: 'Ergebnis des ersten Spielers',
+    secondPlayerScore: 'Ergebnis des zweiten Spielers',
   },
   en: {
     login: 'Sign in',
@@ -139,6 +151,8 @@ export const languages = {
     multiPlayer: 'MULTI PLAYER',
     singlePlayerDesc: 'Play the legendary, classic Tetris you know and love!',
     multiPlayerDesc: 'Play the legendary, classic Tetris with your friends!',
+    coopPlayer: 'COOP GAME',
+    coopPlayerDesc: 'Play the legendary, classic Tetris with your friends on the same device!',
     classicSkin: 'CLASSICAL',
     oresSkin: 'GEMS',
     snowSkin: 'SNOWFALL',
@@ -165,6 +179,10 @@ export const languages = {
 
     lines: 'Lines',
     level: 'Level',
+
+    gameOver: 'Game over',
+    firstPlayerScore: 'Result of the first player',
+    secondPlayerScore: 'Result of the second player',
   },
   ru: {
     login: 'Войти в аккаунт',
@@ -186,6 +204,8 @@ export const languages = {
     multiPlayer: 'СЕТЕВАЯ ИГРА',
     singlePlayerDesc: 'Сыграй в легендарный, классический Tetris, котрый вы знаете и любите!',
     multiPlayerDesc: 'Сыграй в легендарный, классический Tetris, со своими друзьями!',
+    coopPlayer: 'КООПЕРАТИВНАЯ ИГРА',
+    coopPlayerDesc: 'Сыграй в легендарный, классический Тетрис, со своими друзьями на одном устройстве!',
     classicSkin: 'КЛАССИЧЕСКИЙ',
     oresSkin: 'ДРАГОЦЕННЫЕ КАМНИ',
     snowSkin: 'СНЕГОПАД',
@@ -212,6 +232,10 @@ export const languages = {
 
     lines: 'Линии',
     level: 'Уровень',
+
+    gameOver: 'Игра окончена',
+    firstPlayerScore: 'Результат первого игрока',
+    secondPlayerScore: 'Результат второго игрока',
   },
   be: {
     login: 'Увайсці ў рахунак',
@@ -233,6 +257,8 @@ export const languages = {
     multiPlayer: 'СЕТКАВАЯ ГУЛЬНЯ',
     singlePlayerDesc: 'Згуляй у легендарны, класічны Tetris, які вы ведаеце і любіце!',
     multiPlayerDesc: 'Згуляй у легендарны, класічны Tetris, са сваімі сябрамі!',
+    coopPlayer: 'КААПЕРАТЫЎНАЯ ГУЛЬНЯ',
+    coopPlayerDesc: 'Згуляй у легендарны, класічны Тэтрыс, са сваімі сябрамі на адным прыладзе!',
     classicSkin: 'КЛАСІЧНЫ',
     oresSkin: 'КАШТОЎНЫЯ КАМЯНІ',
     snowSkin: 'СНЕГАПАД',
@@ -259,6 +285,10 @@ export const languages = {
 
     lines: 'Лініі',
     level: 'Узровень',
+
+    gameOver: 'Гульня скончаная',
+    firstPlayerScore: 'Вынік першага гульца',
+    secondPlayerScore: 'Вынік другога гульца',
   },
   kz: {
     login: 'Аккаунтқа кіру',
@@ -280,6 +310,8 @@ export const languages = {
     multiPlayer: 'ОНЛАЙН ОЙЫН',
     singlePlayerDesc: 'Өзіңіз білетін және жақсы көретін аты аңызға айналған классикалық Tetris ойнаңыз!',
     multiPlayerDesc: 'Достарыңызбен аты аңызға айналған, классикалық Tetris ойнаңыз!',
+    coopPlayer: 'КОПЕРАТИВТІК ОЙЫН',
+    coopPlayerDesc: 'Достарыңызбен бір құрылғыда аты аңызға айналған классикалық Tetris ойнаңыз!',
     classicSkin: 'КЛАССИКАЛЫҚ',
     oresSkin: 'АСЫЛ ТАСТАР',
     snowSkin: 'ҚАР ЖАУУЫ',
@@ -306,6 +338,10 @@ export const languages = {
 
     lines: 'Жолдар',
     level: 'Деңгей',
+
+    gameOver: 'Ойын аяқталды',
+    firstPlayerScore: 'Бірінші ойыншының нәтижесі',
+    secondPlayerScore: 'Екінші ойыншының нәтижесі',
   },
   uk: {
     login: 'Увійти в аккаунт',
@@ -327,6 +363,8 @@ export const languages = {
     multiPlayer: 'МЕРЕЖЕВА ГРА',
     singlePlayerDesc: 'Зіграй у легендарний, класичний Tetris, котрий ви знаєте та любите!',
     multiPlayerDesc: 'Зіграй у легендарний, класичний Tetris зі своїми друзями!',
+    coopPlayer: 'КООПЕРАТИВНА ГРА',
+    coopPlayerDesc: 'Зіграй у легендарний, класичний Тетріс зі своїми друзями на одному пристрої!',
     classicSkin: 'КЛАСИЧНИЙ',
     oresSkin: 'ДОРОГОЦІННЕ КАМІННЯ',
     snowSkin: 'СНІГОПАД',
@@ -353,6 +391,10 @@ export const languages = {
 
     lines: 'Лінії',
     level: 'Рівень',
+
+    gameOver: 'Гру закінчено',
+    firstPlayerScore: 'Результат першого гравця',
+    secondPlayerScore: 'Результат другого гравця',
   },
 }
 export function saveStates() {
