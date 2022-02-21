@@ -49,7 +49,7 @@ export default class HomePage extends BasePage {
         </div>
 
         <footer>
-          <a class="rs-school" href="https://rs.school/js/" target="_blank"><img src="./assets/svg/rsschool.svg"></a>
+          <a class="rs-school" href="https://rs.school/js/" target="_blank"><img clas src="./assets/svg/rsschool.svg"></a>
           <div class="year">2022</div>
           <a class="github" href="https://github.com/Dan-Tel" target="_blank">Dan-Tel</a>
           <a class="github" href="https://github.com/KostenkoJr" target="_blank">KostenkoJr</a>

@@ -125,7 +125,7 @@ export default class PlayField implements IPlayField {
     })
   }
 
-  renderPanel({ score, lines, level /* , nextPiece */ }) {
+  renderPanel({ score, lines, level = 0 /* , nextPiece */ }) {
     this.scoreContainer.textContent = score;
     this.linesContainer.innerHTML = `${languages[states.lang].lines}:<br>${lines}`;
     this.levelContainer.innerHTML = `${languages[states.lang].level}:<br>${level}`;
@@ -140,7 +140,7 @@ export default class PlayField implements IPlayField {
         if (flag) {
           if (!block.classList.contains('effect')) {
             block.classList.add('effect');
-          }
+          } 
         } else {
           block.classList.remove('effect');
         }
