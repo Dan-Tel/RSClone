@@ -51,7 +51,7 @@ export default class LeaderboardPage extends BasePage {
     const leaderBord = document.querySelector('.leaderboard');
     const fragment = document.createDocumentFragment();
     const leaders = await UserService.getLeaders();
-    leaders.forEach(leader => {
+    leaders.forEach((leader) => {
       const li = document.createElement('li');
 
       const div = document.createElement('div');

@@ -307,6 +307,44 @@ html {
   }
 }
 
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60%;
+  height: 100px;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.75) 0%, rgba(74, 74, 74, 0.375) 100%);
+  border-radius: 50px 0 0 0;
+  color: #ffffff;
+  font-size: 28px;
+
+  & .rs-school {
+    height: 50%;
+
+    & img {
+      height: 100%;
+    }
+  }
+
+  & .year {
+    font-size: 48px;
+    font-weight: 700;
+  }
+
+  & .github {
+    color: rgba(255,255,255,0.5);
+    transition: 0.3s ease;
+
+    &:hover {
+      color: rgba(255,255,255,1);
+    }
+  }
+}
+
 .mode__name {
   display: flex;
   align-items: center;
