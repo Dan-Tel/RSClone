@@ -11,6 +11,7 @@ import SettingsPage from './views/SettingsPage';
 import LeaderboardPage from './views/LeaderboardPage';
 import LoginPage from './views/LoginPage';
 import RegistrationPage from './views/RegistrationPage';
+import { soundService } from './services/SoundService';
 
 /* Routing section */
 const pageContainer = document.querySelector('.page-container') as HTMLDivElement;
@@ -67,20 +68,23 @@ function preloadImages() {
 }
 
 window.addEventListener('hashchange', () => {
-  if(!localStorage.getItem('token') && document.location.hash !== '#registration') {
+  if (!localStorage.getItem('token') && document.location.hash !== '#registration') {
     document.location.href = '/';
     return;
   }
   pageContainer.classList.add('hide');
+  soundService.playSelect();
+
   setTimeout(() => {
     router();
     preloadImages();
     pageContainer.classList.remove('hide');
-  }, 200)
+  }, 500)
 });
 window.addEventListener('load', () => {
   updateStates();
   router();
+  window.addEventListener('hashchange', () => soundService.playTheme(), { once: true });
   preloadImages();
 });
 window.addEventListener('unload', saveStates);

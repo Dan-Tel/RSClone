@@ -6,6 +6,7 @@ import BasePage from './BasePage';
 import { FindEnemyUrl, SignalRHubUrl } from '../settings/Urls';
 import MultiplayerService from '../services/MultiplayerService';
 import MultiplayerFieldCreator from '../MultiplayerFieldCreator';
+import states, { languages } from '../states';
 
 export default class MultiplayerPage extends BasePage {
   // view: string;
@@ -39,8 +40,8 @@ export default class MultiplayerPage extends BasePage {
             <div class="game-container enemy-game-container">
                 <div class="game__stats-container">
                     <div class="game__score">0</div>
-                    <div class="game__lines">0</div>
-                    <div class="game__level">0</div>
+                    <div class="game__lines">${languages[states.lang].lines}:<br>0</div>
+                    <div class="game__level">${languages[states.lang].level}:<br>0</div>
                 </div>
                 <div class="game__screen"></div>
             </div>
@@ -48,8 +49,8 @@ export default class MultiplayerPage extends BasePage {
             <div class="game-container my-game-container">
                 <div class="game__stats-container">
                     <div class="game__score">0</div>
-                    <div class="game__lines">0</div>
-                    <div class="game__level">0</div>
+                    <div class="game__lines">${languages[states.lang].lines}:<br>0</div>
+                    <div class="game__level">${languages[states.lang].level}:<br>0</div>
                 </div>
                 <div class="game__screen"></div>
                 <div class="game__next">
@@ -71,7 +72,7 @@ export default class MultiplayerPage extends BasePage {
     
         <div class="timer-overlay hide">3</div>
         <div class="spinner-overlay">
-          <p class="spinner-label">We are trying to find an opponent for you</p>
+          <p class="spinner-label">${languages[states.lang].lookingForEnemy}</p>
           <div class='spinner'>
             <div class='spinner__block'>
                 <div class='spinner__item'></div>

@@ -32,9 +32,10 @@ export default class RegistrationPage extends BasePage {
             <h2 class="registration-title">${languages[states.lang].registration}</h2>
             <input class="nickname-input" type="text" placeholder="${languages[states.lang].nickname}">
             <input class="password-input" type="password" placeholder="${languages[states.lang].password}">
+            <span class="registration-error">Ошибка</span>
           </div>
           <button class="registration-btn">${languages[states.lang].register}</button>
-          <span class="registration-link">${languages[states.lang].login}</span>
+          <p class="registration-text">${languages[states.lang].areYouAlreadyRegistered} <span class="registration-link">${languages[states.lang].login}</span></p>
         </div>
       </section>
       `;
@@ -44,21 +45,31 @@ export default class RegistrationPage extends BasePage {
     this.pageContainer.innerHTML = this.view;
     const btn : HTMLButtonElement|null = document.querySelector('.registration-btn');
     const inputNickname : HTMLInputElement | null = document.querySelector('.nickname-input');
-    const inputPassword : HTMLInputElement | null  = document.querySelector('.password-input');
-    if(btn) {
-      btn.addEventListener('click', async (event) => {
+    const inputPassword : HTMLInputElement | null = document.querySelector('.password-input');
+    const inputError = document.querySelector('.registration-error') as HTMLElement;
+
+    if (btn) {
+      btn.addEventListener('click', async () => {
         const name = inputNickname?.value;
-        if(name?.length === 0)
-        {
-            alert('Invalid nickname');
-            return;
+        if (name?.length === 0) {
+          inputError.textContent = 'Invalid nickname';
+          inputError.classList.add('show');
+          inputNickname?.classList.add('error');
+          inputPassword?.classList.add('error');
+          return;
         }
         const response = await AuthService.Register(name ?? '', inputPassword?.value ?? '')
-        if(response.success === true) {
+        if (response.success === true) {
           document.location.hash = '#home';
+          inputError.classList.remove('show');
+          inputNickname?.classList.remove('error');
+          inputPassword?.classList.remove('error');
         } else {
-            const errorMessage = response.errors.join(',');
-            alert(errorMessage);
+          const errorMessage = response.errors.join(',');
+          inputError.textContent = errorMessage;
+          inputError.classList.add('show');
+          inputNickname?.classList.add('error');
+          inputPassword?.classList.add('error');
         }
       });
     }

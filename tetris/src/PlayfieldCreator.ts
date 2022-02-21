@@ -1,9 +1,9 @@
 import GameController from './GameController';
 import PlayField from './PlayField';
-import SoundService from './services/SoundService';
 import UserService from './services/UserService';
 import IPlayFieldSettings from './settings/IPlayFieldSettings';
 import states, { languages } from './states';
+import { soundService } from './services/SoundService';
 
 export default class PlayFieldCreator {
   pageContainer: HTMLDivElement;
@@ -14,7 +14,7 @@ export default class PlayFieldCreator {
 
   playFieldSettings: IPlayFieldSettings;
 
-  soundService: SoundService;
+  // soundService: SoundService;
 
   playField: PlayField;
 
@@ -37,9 +37,9 @@ export default class PlayFieldCreator {
       columns: 10,
       rows: 20,
     };
-    this.soundService = new SoundService();
+    // this.soundService = new SoundService();
     this.playField = new PlayField(this.gameContainer as HTMLDivElement, this.playFieldSettings);
-    this.gameController = new GameController(this.playField, this.soundService);
+    this.gameController = new GameController(this.playField, soundService);
 
     this.canPlay = false;
   }
@@ -52,8 +52,10 @@ export default class PlayFieldCreator {
   }
 
   startTimer = () => {
+    const speed = 1000 - this.gameController.level * 100;
+
     if (!this.movingDownInterval && !this.isGameOver) {
-      this.movingDownInterval = setInterval(() => this.moveDown(), 800);
+      this.movingDownInterval = setInterval(() => this.moveDown(), speed > 0 ? speed : 100);
     }
   }
 
@@ -62,11 +64,13 @@ export default class PlayFieldCreator {
 
     (winScreen.querySelector('.current-score') as HTMLDivElement).textContent = `${languages[states.lang].currentScore}: ${this.gameController.score}`;
     (winScreen.querySelector('.record-score') as HTMLDivElement).textContent = `${languages[states.lang].recordScore}: ${this.gameController.score > states.bestResult ? this.gameController.score : states.bestResult}`;
-    if(this.gameController.score > states.bestResult) {
+    if (this.gameController.score > states.bestResult) {
       UserService.updateBestResult(this.gameController.score);
     }
-    states.coins += this.gameController.score / 2
+    states.coins += this.gameController.score / 2;
     winScreen.classList.add('show');
+
+    soundService.playGameOver();
   }
 
   moveDown = () => {
@@ -82,12 +86,12 @@ export default class PlayFieldCreator {
 
     this.gameController.movePieceDown();
     if (this.gameController.isClearing) {
-      this.soundService.playLine();
+      soundService.playLine();
       this.gameController.playField.clearingEffect(this.gameController.clearingLines, true);
       setTimeout(() => {
         this.gameController.playField.clearingEffect(this.gameController.clearingLines, false);
         this.gameController.playField.render(this.gameController.getState());
-      }, 250)
+      }, 450)
     }
     this.gameController.playField.render(this.gameController.getState());
   }
@@ -112,6 +116,7 @@ export default class PlayFieldCreator {
     window.addEventListener('hashchange', () => {
       this.isGameOver = true;
       this.stopTimer();
+      this.canPlay = false;
       clearInterval(countInterval);
     });
   }

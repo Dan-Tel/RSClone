@@ -1,5 +1,5 @@
 import IPlayFieldSettings from './settings/IPlayFieldSettings';
-import states from './states';
+import states, { languages } from './states';
 
 // TODO: после того, как будет расскоментирован код, интерфейс надо перенести в interfaces.ts
 export interface IPlayField {
@@ -125,10 +125,10 @@ export default class PlayField implements IPlayField {
     })
   }
 
-  renderPanel({ score, lines /* , nextPiece */ }) {
+  renderPanel({ score, lines, level /* , nextPiece */ }) {
     this.scoreContainer.textContent = score;
-    this.linesContainer.textContent = `Lines: ${lines}`;
-    this.levelContainer.textContent = 'Level: 1';
+    this.linesContainer.innerHTML = `${languages[states.lang].lines}:<br>${lines}`;
+    this.levelContainer.innerHTML = `${languages[states.lang].level}:<br>${level}`;
     // TODO: временно закоментировал, надо поправить стили
     // this.nextFigureContainer.src = `./assets/images/next-${nextPiece.blocks[1][1]}.png`;
   }

@@ -32,9 +32,10 @@ export default class LoginPage extends BasePage {
             <h2 class="registration-title">${languages[states.lang].login}</h2>
             <input class="nickname-input" type="text" placeholder="${languages[states.lang].nickname}">
             <input class="password-input" type="password" placeholder="${languages[states.lang].password}">
+            <span class="registration-error">Ошибка</span>
           </div>
           <button class="registration-btn">${languages[states.lang].enter}</button>
-          <span class="registration-link">${languages[states.lang].register}</span>
+          <p class="registration-text">${languages[states.lang].areYouNotRegistered} <span class="registration-link">${languages[states.lang].register}</span></p>
         </div>
       </section>
       `;
@@ -44,15 +45,23 @@ export default class LoginPage extends BasePage {
     this.pageContainer.innerHTML = this.view;
     const btn : HTMLButtonElement|null = document.querySelector('.registration-btn');
     const inputNickname : HTMLInputElement | null = document.querySelector('.nickname-input');
-    const inputPassword : HTMLInputElement | null  = document.querySelector('.password-input');
-    if(btn) {
-      btn.addEventListener('click', async (event) => {
+    const inputPassword : HTMLInputElement | null = document.querySelector('.password-input');
+    const inputError = document.querySelector('.registration-error') as HTMLElement;
+
+    if (btn) {
+      btn.addEventListener('click', async () => {
         const response = await AuthService.Login(inputNickname?.value ?? '', inputPassword?.value ?? '')
-        if(response.success === true) {
+        if (response.success === true) {
           document.location.hash = '#home';
+          inputError.classList.remove('show');
+          inputNickname?.classList.remove('error');
+          inputPassword?.classList.remove('error');
         } else {
           const errorMessage = response.errors.join(',');
-          alert(errorMessage);
+          inputError.textContent = errorMessage;
+          inputError.classList.add('show');
+          inputNickname?.classList.add('error');
+          inputPassword?.classList.add('error');
         }
       });
     }
