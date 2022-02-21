@@ -35,7 +35,7 @@ export default class ShopPage extends BasePage {
 
         <header class="main-header">
           <div class="player__name"><span class="player__level">${states.rank}</span>${states.nickname}</div>
-          <div class="player__coins"><span class="coin__logo"></span>0.0</div>
+          <div class="player__coins"><span class="coin__logo"></span>0</div>
         </header>
 
         <div class="main-menu">
@@ -65,7 +65,7 @@ export default class ShopPage extends BasePage {
               <img src="./assets/shop-cards/card-2.png">
               <div class="skin-wrapper">
                 <div class="skin-name">${languages[states.lang].oresSkin}</div>
-                <div class="skin-cost skin-2"><span class="coin__logo"></span>10</div>
+                <div class="skin-cost skin-2"><span class="coin__logo"></span>1000</div>
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@ export default class ShopPage extends BasePage {
               <img src="./assets/shop-cards/card-3.png">
               <div class="skin-wrapper">
                 <div class="skin-name">${languages[states.lang].snowSkin}</div>
-                <div class="skin-cost skin-3"><span class="coin__logo"></span>20</div>
+                <div class="skin-cost skin-3"><span class="coin__logo"></span>5000</div>
               </div>
             </div>
           </div>
@@ -85,7 +85,7 @@ export default class ShopPage extends BasePage {
               <img src="./assets/shop-cards/card-4.png">
               <div class="skin-wrapper">
                 <div class="skin-name">${languages[states.lang].cookieSkin}</div>
-                <div class="skin-cost skin-4"><span class="coin__logo"></span>30</div>
+                <div class="skin-cost skin-4"><span class="coin__logo"></span>7500</div>
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ export default class ShopPage extends BasePage {
               <img src="./assets/shop-cards/card-5.png">
               <div class="skin-wrapper">
                 <div class="skin-name">${languages[states.lang].candySkin}</div>
-                <div class="skin-cost skin-5"><span class="coin__logo"></span>40</div>
+                <div class="skin-cost skin-5"><span class="coin__logo"></span>12500</div>
               </div>
             </div>
           </div>
@@ -105,7 +105,7 @@ export default class ShopPage extends BasePage {
               <img src="./assets/shop-cards/card-6.png">
               <div class="skin-wrapper">
                 <div class="skin-name">${languages[states.lang].kawaiiSkin}</div>
-                <div class="skin-cost skin-6"><span class="coin__logo"></span>40</div>
+                <div class="skin-cost skin-6"><span class="coin__logo"></span>20000</div>
               </div>
             </div>
           </div>
@@ -115,7 +115,7 @@ export default class ShopPage extends BasePage {
               <img src="./assets/shop-cards/card-7.png">
               <div class="skin-wrapper">
                 <div class="skin-name">${languages[states.lang].chickenSkin}</div>
-                <div class="skin-cost skin-7"><span class="coin__logo"></span>60</div>
+                <div class="skin-cost skin-7"><span class="coin__logo"></span>50000</div>
               </div>
             </div>
           </div>
@@ -125,7 +125,7 @@ export default class ShopPage extends BasePage {
               <img src="./assets/shop-cards/card-8.png">
               <div class="skin-wrapper">
                 <div class="skin-name">${languages[states.lang].halloweenSkin}</div>
-                <div class="skin-cost skin-8"><span class="coin__logo"></span>60</div>
+                <div class="skin-cost skin-8"><span class="coin__logo"></span>100000</div>
               </div>
             </div>
           </div>

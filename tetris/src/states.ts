@@ -21,7 +21,7 @@ const states: IState = {
   musicVol: 0.5,
   sfxVol: 0.5,
   rank: 1,
-  bestResult: 0
+  bestResult: 0,
 }
 
 export const languages = {
@@ -29,6 +29,8 @@ export const languages = {
     login: 'Registrazione',
     registration: 'Deposito',
     register: 'Iscriviti',
+    areYouNotRegistered: 'Non sei ancora registrato?',
+    areYouAlreadyRegistered: 'Sei già registrato?',
     email: 'E-mail',
     password: 'Parola d\'ordine',
     nickname: 'Login',
@@ -59,17 +61,23 @@ export const languages = {
     bought: 'ACQUISTATO',
 
     // Multiplayer mode
+    lookingForEnemy: 'Stiamo cercando di trovare una corrispondenza per te',
     yourResult: 'Il tuo risultato', // Вы победили
     enemyResult: 'Risultato avversario', // Результат врага
     youWin: 'Hai vinto', // Вы победили
     youLost: 'Hai perso', // Вы проиграли
     draw: 'Pareggiare', // Ничья
     waitOfTheEnd: 'Aspettatevi la fine del gioco', // Ожидайте окончания игры
+
+    lines: 'Linee',
+    level: 'Livello',
   },
   de: {
     login: 'Anmeldung',
     registration: 'Eintragung',
     register: 'Sich registrieren lassen',
+    areYouNotRegistered: 'Sie sind noch nicht registriert?',
+    areYouAlreadyRegistered: 'Sie sind bereits registriert?',
     email: 'E-mail',
     password: 'Passwort',
     nickname: 'Login',
@@ -100,17 +108,23 @@ export const languages = {
     bought: 'GEKAUFT',
 
     // Multiplayer mode
+    lookingForEnemy: 'Wir versuchen, eine Übereinstimmung für Sie zu finden',
     yourResult: 'Ihr Ergebnis', // Вы победили
     enemyResult: 'Das Ergebnis des Gegners', // Результат врага
     youWin: 'Sie haben gewonnen', // Вы победили
     youLost: 'Sie haben verloren', // Вы проиграли
     draw: 'Unentschieden', // Ничья
     waitOfTheEnd: 'Warten Sie auf das Ende des Spiels', // Ожидайте окончания игры
+
+    lines: 'Linien',
+    level: 'Stufe',
   },
   en: {
     login: 'Sign in',
     registration: 'Registration',
     register: 'Register',
+    areYouNotRegistered: 'Are you not registered yet?',
+    areYouAlreadyRegistered: 'Are you already registered?',
     email: 'E-mail',
     password: 'Password',
     nickname: 'Login',
@@ -141,17 +155,23 @@ export const languages = {
     bought: 'BOUGHT',
 
     // Multiplayer mode
+    lookingForEnemy: 'We are trying to find an opponent for you',
     yourResult: 'Your result', // Вы победили
     enemyResult: 'Opponent`s result', // Результат врага
     youWin: 'You`ve won', // Вы победили
     youLost: 'You`ve lost', // Вы проиграли
     draw: 'Draw', // Ничья
     waitOfTheEnd: 'Wait till the end', // Ожидайте окончания игры
+
+    lines: 'Lines',
+    level: 'Level',
   },
   ru: {
     login: 'Войти в аккаунт',
     registration: 'Регистрация',
     register: 'Зарегистрироваться',
+    areYouNotRegistered: 'Вы ещё не зарегистрированны?',
+    areYouAlreadyRegistered: 'Вы уже зарегистрированны?',
     email: 'Почта',
     password: 'Пароль',
     nickname: 'Никнейм',
@@ -182,17 +202,23 @@ export const languages = {
     bought: 'КУПЛЕНО',
 
     // Multiplayer mode
+    lookingForEnemy: 'Мы пытаемся найти соперника для вас',
     yourResult: 'Ваш результат', // Вы победили
     enemyResult: 'Результат соперника', // Результат врага
     youWin: 'Вы победили', // Вы победили
     youLost: 'Вы проиграли', // Вы проиграли
     draw: 'Ничья', // Ничья
     waitOfTheEnd: 'Ожидайте окончания игры', // Ожидайте окончания игры
+
+    lines: 'Линии',
+    level: 'Уровень',
   },
   be: {
     login: 'Увайсці ў рахунак',
     registration: 'Рэгістрацыя',
     register: 'Зарэгістравацца',
+    areYouNotRegistered: 'Вы яшчэ не зарэгістраваны?',
+    areYouAlreadyRegistered: 'Вы ўжо зарэгістраваны?',
     email: 'Пошта',
     password: 'Пароль',
     nickname: 'Логин',
@@ -223,17 +249,23 @@ export const languages = {
     bought: 'КУПЛЕНА',
 
     // Multiplayer mode
+    lookingForEnemy: 'Мы спрабуем знайсці суперніка для вас',
     yourResult: 'Ваш вынік', // Вы победили
     enemyResult: 'Вынік суперніка', // Результат врага
     youWin: 'Вы перамаглі', // Вы победили
     youLost: 'Вы прайгралі', // Вы проиграли
     draw: 'Чые', // Ничья
     waitOfTheEnd: 'Чакайце заканчэння гульні', // Ожидайте окончания игры
+
+    lines: 'Лініі',
+    level: 'Узровень',
   },
   kz: {
     login: 'Аккаунтқа кіру',
     registration: 'Тіркеу',
     register: 'Тіркелу',
+    areYouNotRegistered: 'Сіз әлі тіркелген жоқсыз ба?',
+    areYouAlreadyRegistered: 'Сіз тіркеліп қойдыңыз ба?',
     email: 'Пошта',
     password: 'Құпия сөз',
     nickname: 'Логин',
@@ -264,17 +296,23 @@ export const languages = {
     bought: 'САТЫП АЛЫНДЫ',
 
     // Multiplayer mode
-    yourResult: 'Сіздің нәтижеңіз', // Вы победили
+    lookingForEnemy: 'Біз сізге қарсыласты табуға тырысудамыз',
+    yourResult: 'Сіздің нәтижеңіз', // Вы победии
     enemyResult: 'Қарсыластың нәтижесі', // Результат врага
     youWin: 'Сіз жеңдіңіз', // Вы победили
     youLost: 'Сіз жоғалттыңыз', // Вы проиграли
     draw: 'Тең', // Ничья
     waitOfTheEnd: 'Ойынның аяқталуын күтіңіз', // Ожидайте окончания игры
+
+    lines: 'Жолдар',
+    level: 'Деңгей',
   },
   uk: {
     login: 'Увійти в аккаунт',
     registration: 'Реєстрація',
     register: 'Зареєструватися',
+    areYouNotRegistered: 'Ви ще не зареєстровані?',
+    areYouAlreadyRegistered: 'Ви вже зареєстровані?',
     email: 'Пошта',
     password: 'Пароль',
     nickname: 'Логин',
@@ -305,12 +343,16 @@ export const languages = {
     bought: 'КУПЛЕНО',
 
     // Multiplayer mode
+    lookingForEnemy: 'Ми намагаємося знайти суперника для вас',
     yourResult: 'Ваш результат', // Вы победили
     enemyResult: 'Результат суперника', // Результат врага
     youWin: 'Ви перемогли', // Вы победили
     youLost: 'Ви програли', // Вы проиграли
     draw: 'Нiчия', // Ничья
     waitOfTheEnd: 'Чекайте на закiнчення гри', // Ожидайте окончания игры
+
+    lines: 'Лінії',
+    level: 'Рівень',
   },
 }
 export function saveStates() {

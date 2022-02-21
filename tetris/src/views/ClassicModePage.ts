@@ -20,8 +20,8 @@ export default class ClassicModePage extends BasePage {
     <div class="game-container">
         <div class="game__stats-container">
             <div class="game__score">0</div>
-            <div class="game__lines">0</div>
-            <div class="game__level">0</div>
+            <div class="game__lines">${languages[states.lang].lines}:<br>0</div>
+            <div class="game__level">${languages[states.lang].level}:<br>0</div>
         </div>
         <div class="game__screen"></div>
         <div class="game__next">

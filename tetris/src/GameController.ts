@@ -44,7 +44,7 @@ export default class GameController {
     };
     this.score = 0;
     this.lines = 0;
-    this.level = 0;
+    this.level = Math.floor(this.lines * 0.1);
 
     this.topOut = false;
 
@@ -81,6 +81,7 @@ export default class GameController {
       playfieldBoard,
       score: this.score,
       lines: this.lines,
+      level: this.level,
       nextPiece: this.nextPiece,
     };
   }
@@ -233,7 +234,8 @@ export default class GameController {
 
   updateScore(clearedLines) {
     if (clearedLines > 0) {
-      this.score += this.points[clearedLines];
+      this.level = Math.floor(this.lines * 0.1);
+      this.score += this.points[clearedLines] * (this.level + 1);
       this.lines += clearedLines;
     }
   }

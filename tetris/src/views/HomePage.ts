@@ -29,7 +29,7 @@ export default class HomePage extends BasePage {
 
         <header class="main-header">
             <div class="player__name"><span class="player__level">${states.rank}</span><span class="player__name-value">${states.nickname}</span></div>
-            <div class="player__coins"><span class="coin__logo"></span>0.0</div>
+            <div class="player__coins"><span class="coin__logo"></span>0</div>
         </header>
 
         <div class="main-container">

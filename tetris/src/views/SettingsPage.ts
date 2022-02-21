@@ -1,4 +1,5 @@
 import { tns } from 'tiny-slider';
+import { soundService } from '../services/SoundService';
 import states, { languages } from '../states';
 import BasePage from './BasePage';
 
@@ -113,6 +114,13 @@ export default class SettingsPage extends BasePage {
       sound.style.background = `linear-gradient(to right, ${color} 0 ${value * 10}%, #ffffff ${value * 10}% 100%)`;
 
       states[soundVol] = value / 10;
+
+      switch (soundVol) {
+        case 'sfxVol':
+          soundService.changeSfxVolume();
+        case 'musicVol':
+          soundService.changeMusicVolume();
+      }
     }
 
     const sfxVolume = document.querySelector('.sfx-volume') as HTMLInputElement;
