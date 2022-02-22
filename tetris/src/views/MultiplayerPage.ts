@@ -64,10 +64,10 @@ export default class MultiplayerPage extends BasePage {
             <img class="win-logo" src="assets/svg/crown.svg"></img>
             <div class="win-screen__wrapper">
                 <h1 class="win-screen__label"></h1>
-                <p class="current-score">Ваш счёт: 00000</p>
+                <p class="current-score">${languages[states.lang].score}: 00000</p>
                 <p class="enemy-score"></p>
             </div>
-            <a href="/#home" class="win-screen__button">Назад</a>
+            <a href="/#home" class="win-screen__button">${languages[states.lang].back}</a>
         </div>
     
         <div class="timer-overlay hide">3</div>
@@ -127,6 +127,10 @@ export default class MultiplayerPage extends BasePage {
         }
       });
     };
+
+    window.addEventListener('hashchange', () => {
+      document.location.reload();
+    }, { once: true })
 
     const playerKeyHandlerSettings: IKeyHandlerSettings = {
       turnFigure: 'ArrowUp',
