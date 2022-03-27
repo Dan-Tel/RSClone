@@ -4,6 +4,7 @@
 - SPA with hash routing
 - ESLint
 - Webpack
+- SCSS (https://www.npmjs.com/package/sass). The SCSS preprocessor was used as a tool for describing styles. Preference was given to this preprocessor for several reasons: clear and simple syntax, advanced CSS capabilities, team members had experience working with this preprocessor.
 - SignalR library (https://www.npmjs.com/package/@microsoft/signalr). This library was chosen due to the fact that communication is taking place with a server developed on .NET Core. This library is the most popular for .NET Core applications, thus managed to ensure the greatest compatibility. The advantage of this library is the availability of good documentation, a large number of features provided, ease of configuration and use
 
 ## Backend technologies
