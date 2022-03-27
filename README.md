@@ -1,7 +1,9 @@
 # Tetris RS Clone
 ## Frontend technologies
 - Vanilla TS
-- SPA with hash routin
+- SPA with hash routing
+- ESLint
+- Webpack
 - SignalR library (https://www.npmjs.com/package/@microsoft/signalr). This library was chosen due to the fact that communication is taking place with a server developed on .NET Core. This library is the most popular for .NET Core applications, thus managed to ensure the greatest compatibility. The advantage of this library is the availability of good documentation, a large number of features provided, ease of configuration and use
 
 ## Backend technologies
